@@ -3,28 +3,20 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<![endif]-->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Watermelon TeamWork</title>
 
     <!-- Favicons Icon -->
     <link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon">
 
-    <!-- Mobile Specific -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- CSS Style -->
-
-    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
-
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
 
@@ -135,6 +127,32 @@
             </div>
         </nav>
         <!-- end nav -->
+
+        <!--Home page-->
+        <div class="container">
+            <div class="slider-section">
+                <div class="slider-intro">
+                    <div class="the-slideshow slideshow-wrapper">
+                        <ul class="slideshow" style="overflow: hidden;">
+                            <li class="slide">
+                                <p>
+                                    <a href="#"> <img src="images/banner-img.jpg" alt="Banner Image" /></a>
+                                </p>
+                                <div class="caption light1 top-right">
+                                    <div class="caption-inner">
+                                        <p class="heading">Welcome to Watermelon Book Store</p>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end Home Page-->
+
         <div class="main-container col2-left-layout">
             <div class="main container">
                 <div class="row">
@@ -316,6 +334,7 @@
                 </div>
             </div>
         </div>
+        <!--LogIn Form-->
         <section class="main-container col1-layout">
             <div class="main container">
                 <div class="account-login">
@@ -353,6 +372,86 @@
                                     <a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot Your Password?</a> </div>
                             </div>
                         </div>
+                    </fieldset>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </section>
+        <!--END LogIn Form-->
+        <section class="main-container col1-layout">
+            <div class="main container">
+                <div class="account-login">
+                    <div class="page-title">
+                        <h2>Create an Account</h2>
+                    </div>
+                    <fieldset class="col2-set">
+                        <legend>Create an Account</legend>
+                        <div class="col-0 registered-users"><strong>User Registration</strong>
+                            <div class="content">
+                                <!--<p>If you have an account with us, please log in.</p>-->
+                                <ul class="form-list">
+                                    <li>
+                                        <label>Firs Name </label>
+                                        <br>
+                                        <input type="text" title="First Name" class="input-text " value="" name="register[username]">
+                                    </li>
+                                    <li>
+                                        <label>Last Name </label>
+                                        <br>
+                                        <input type="text" title="Last Name" class="input-text " value="" name="register[username]">
+                                    </li>
+                                    <li>
+                                        <label>User Name <span class="required">*</span></label>
+                                        <br>
+                                        <input type="text" title="User Name" class="input-text required-entry" value="" name="register[username]">
+                                    </li>
+                                    <li>
+                                        <label>Email Address </label>
+                                        <br>
+                                        <input type="text" title="Email Address" class="input-text" value="" name="register[username]">
+                                    </li>
+                                    <li>
+                                        <label for="pass">Password <span class="required">*</span></label>
+                                        <br>
+                                        <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
+                                    </li>
+                                    <li>
+                                        <label for="pass">Confirm Password <span class="required">*</span></label>
+                                        <br>
+                                        <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
+                                    </li>
+                                </ul>
+                                <p class="required">* Required Fields</p>
+                                <div class="buttons-set">
+                                    <button id="send2" name="send" type="submit" class="button login"><span>Register</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-2 registered-users"><strong>Registered Customers</strong>
+                            <div class="content">
+                                <p>If you have an account with us, please log in.</p>
+                                <ul class="form-list">
+                                    <li>
+                                        <label>Email Address <span class="required">*</span></label>
+                                        <br>
+                                        <input type="text" title="Email Address" class="input-text required-entry" value="" name="login[username]">
+                                    </li>
+                                    <li>
+                                        <label for="pass">Password <span class="required">*</span></label>
+                                        <br>
+                                        <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
+                                    </li>
+                                </ul>
+                                <p class="required">* Required Fields</p>
+                                <div class="buttons-set">
+                                    <button id="send2" name="send" type="submit" class="button login"><span>Login</span></button>
+                                    <a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot Your Password?</a> </div>
+                            </div>
+                        </div>-->
                     </fieldset>
                 </div>
                 <br>
