@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="./bower_components/toastr/toastr.css">
 
 </head>
 
@@ -39,7 +40,7 @@
                             <!-- Header Top Links -->
                             <div class="toplinks">
                                 <div class="links">
-                                    <div class="login"><a href="#"><span class="hidden-xs">Log In</span></a></div>
+                                    <div class="login"><a href="#/users/login"><span class="hidden-xs">Log In</span></a></div>
                                 </div>
                             </div>
                             <!-- End Header Top Links -->
@@ -100,7 +101,7 @@
 
                     <!--End mobile-menu -->
                     <ul id="nav" class="hidden-xs">
-                        <li id="nav-home" class="level0 parent drop-menu active"><a href="#"><span>Home</span> </a>
+                        <li id="nav-home" class="level0 parent drop-menu active"><a href="#/"><span>Home</span> </a>
                             <ul class="level1" style="display: none;">
                                 <!--<li class="level1 first parent"><a href="#"><span> Home Version 1</span></a> </li>
                                 <li class="level1 parent"><a href="#"><span> Home Version 2</span></a> </li>
@@ -128,328 +129,37 @@
         </nav>
         <!-- end nav -->
 
-        <!--Home page-->
-        <div class="container">
-            <div class="slider-section">
-                <div class="slider-intro">
-                    <div class="the-slideshow slideshow-wrapper">
-                        <ul class="slideshow" style="overflow: hidden;">
-                            <li class="slide">
-                                <p>
-                                    <a href="#"> <img src="images/banner-img.jpg" alt="Banner Image" /></a>
-                                </p>
-                                <div class="caption light1 top-right">
-                                    <div class="caption-inner">
-                                        <p class="heading">Welcome to Watermelon Book Store</p>
-
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end Home Page-->
-
-        <div class="main-container col2-left-layout">
-            <div class="main container">
-                <div class="row">
-                    <section class="col-sm-9 col-sm-push-3">
-                        <div class="col-main">
-                            <div class="category-title">
-                                <h1>Tops &amp; Tees</h1>
-                            </div>
-                            <div class="category-description std">
-                                <div class="slider-items-products">
-                                    <div id="category-desc-slider" class="product-flexslider hidden-buttons">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="category-products">
-                                <div class="toolbar">
-                                    <div class="sorter">
-                                        <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>
-                                    </div>
-                                    <div id="sort-by">
-                                        <label class="left">Sort By: </label>
-                                        <ul>
-                                            <li><a href="#">Position<span class="right-arrow"></span></a>
-                                                <ul>
-                                                    <li><a href="#">Name</a></li>
-                                                    <li><a href="#">Price</a></li>
-                                                    <li><a href="#">Position</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>
-                                    <div class="pager">
-                                        <div id="limiter">
-                                            <label>View: </label>
-                                            <ul>
-                                                <li><a href="#">15<span class="right-arrow"></span></a>
-                                                    <ul>
-                                                        <li><a href="#">20</a></li>
-                                                        <li><a href="#">30</a></li>
-                                                        <li><a href="#">35</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="pages">
-                                            <label>Page:</label>
-                                            <ul class="pagination">
-                                                <li><a href="#">&laquo;</a></li>
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">&raquo;</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="products-grid">
-                                    <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-12">
-                                        <div class="item-inner">
-                                            <div class="product-block">
-                                                <div class="product-image">
-                                                    <a href="product_detail.html">
-                                                        <figure class="product-display">
-                                                            <!--<div class="sale-label sale-top-left">Sale</div>-->
-                                                            <img src="./products-images/book1.jpg" class="lazyOwl product-mainpic" alt="Sample Product" style="display: block;">
-                                                            <img class="product-secondpic" alt=" Sample Product" src="./products-images/book1.jpg">
-                                                        </figure>
-                                                    </a>
-                                                </div>
-                                                <div class="product-meta ">
-                                                    <div class="product-action ">
-                                                        <a class="addcart " href="shopping_cart.html "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
-
-                                                        <a class="wishlist " href="wishlist.html "> <i class="icon-heart ">&nbsp;</i> </a>
-
-                                                        <a class="quickview " href="javascript:; "> <i class="icon-zoom ">&nbsp;</i> </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-info ">
-                                                <div class="info-inner ">
-                                                    <div class="item-title "> <a href="product_detail.html " title="Retis lapen casen "> Sample Product</a> </div>
-                                                    <div class="item-content ">
-
-                                                        <div class="item-price ">
-                                                            <div class="price-box "> <span class="regular-price "> <span class="price ">$125.00</span> </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rating ">
-                                                            <div class="ratings ">
-                                                                <div class="rating-box ">
-                                                                    <div class="rating " style="width:80% "></div>
-                                                                </div>
-                                                                <p class="rating-links "> <a href="# ">1 Review(s)</a> <span class="separator ">|</span> <a href="# ">Add Review</a> </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-12">
-                                        <div class="item-inner">
-                                            <div class="product-block">
-                                                <div class="product-image">
-                                                    <a href="product_detail.html">
-                                                        <figure class="product-display">
-                                                            <!--<div class="sale-label sale-top-left">Sale</div>-->
-                                                            <img src="./products-images/03_full.jpg" class="lazyOwl product-mainpic" alt="Sample Product" style="display: block;">
-                                                            <img class="product-secondpic" alt=" Sample Product" src="./products-images/03_full.jpg">
-                                                        </figure>
-                                                    </a>
-                                                </div>
-                                                <div class="product-meta ">
-                                                    <div class="product-action ">
-                                                        <a class="addcart " href="shopping_cart.html "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
-
-                                                        <a class="wishlist " href="wishlist.html "> <i class="icon-heart ">&nbsp;</i> </a>
-
-                                                        <a class="quickview " href="javascript:; "> <i class="icon-zoom ">&nbsp;</i> </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-info ">
-                                                <div class="info-inner ">
-                                                    <div class="item-title "> <a href="product_detail.html " title="Retis lapen casen "> Sample Product</a> </div>
-                                                    <div class="item-content ">
-
-                                                        <div class="item-price ">
-                                                            <div class="price-box "> <span class="regular-price "> <span class="price ">$125.00</span> </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rating ">
-                                                            <div class="ratings ">
-                                                                <div class="rating-box ">
-                                                                    <div class="rating " style="width:80% "></div>
-                                                                </div>
-                                                                <p class="rating-links "> <a href="# ">1 Review(s)</a> <span class="separator ">|</span> <a href="# ">Add Review</a> </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    <aside class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9 wow bounceInUp animated">
-                        <div class="side-nav-categories">
-                            <div class="block-title"> Categories </div>
-                            <div class="box-content box-category">
-                                <ul id="magicat">
-                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#fashion.html"><span>Women</span></a>
-                                        </span>
-
-                                    </li>
-                                    <li class="level0- level0"> <span class="magicat-cat"><a href="#electronics.html"><span>Men</span></a>
-                                        </span>
-                                    </li>
-                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#shoes.html"><span>Shoes</span></a>
-                                        </span>
-                                    </li>
-                                    <li class="level0- level0  watches open"> <span class="magicat-cat"><a href="#watches.html"><span>Watches</span></a>
-                                        </span>
-
-                                    </li>
-                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#furniture.html"><span>Furniture</span></a>
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-        <!--LogIn Form-->
-        <section class="main-container col1-layout">
-            <div class="main container">
-                <div class="account-login">
-                    <div class="page-title">
-                        <h2>Login or Create an Account</h2>
-                    </div>
-                    <fieldset class="col2-set">
-                        <legend>Login or Create an Account</legend>
-                        <div class="col-1 new-users"><strong>New Customers</strong>
-                            <div class="content">
-                                <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-                                <div class="buttons-set">
-                                    <button onclick="window.location='http://demo.magentomagik.com/computerstore/customer/account/create/';" class="button create-account" type="button"><span>Create an Account</span></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2 registered-users"><strong>Registered Customers</strong>
-                            <div class="content">
-                                <p>If you have an account with us, please log in.</p>
-                                <ul class="form-list">
-                                    <li>
-                                        <label>Email Address <span class="required">*</span></label>
-                                        <br>
-                                        <input type="text" title="Email Address" class="input-text required-entry" value="" name="login[username]">
-                                    </li>
-                                    <li>
-                                        <label for="pass">Password <span class="required">*</span></label>
-                                        <br>
-                                        <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
-                                    </li>
-                                </ul>
-                                <p class="required">* Required Fields</p>
-                                <div class="buttons-set">
-                                    <button id="send2" name="send" type="submit" class="button login"><span>Login</span></button>
-                                    <a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot Your Password?</a> </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
-        </section>
-        <!--END LogIn Form-->
-        <!--Register form-->
-        <section class="main-container col1-layout">
-            <div class="main container">
-                <div class="account-login">
-                    <div class="page-title">
-                        <h2>Create an Account</h2>
-                    </div>
-                    <fieldset class="col2-set">
-                        <legend>Create an Account</legend>
-                        <div class="col-0 registered-users"><strong>User Registration</strong>
-                            <div class="content">
-                                <!--<p>If you have an account with us, please log in.</p>-->
-                                <ul class="form-list">
-                                    <li>
-                                        <label>Firs Name </label>
-                                        <br>
-                                        <input type="text" placeholder="First Name" title="First Name" class="input-text " value="" name="register[username]">
-                                    </li>
-                                    <li>
-                                        <label>Last Name </label>
-                                        <br>
-                                        <input type="text" placeholder="Last Name" title="Last Name" class="input-text " value="" name="register[username]">
-                                    </li>
-                                    <li>
-                                        <label>User Name <span class="required">*</span></label>
-                                        <br>
-                                        <input type="text" placeholder="User Name" title="User Name" class="input-text required-entry" value="" name="register[username]">
-                                    </li>
-                                    <li>
-                                        <label>Email Address </label>
-                                        <br>
-                                        <input type="text" placeholder="Email Address" title="Email Address" class="input-text" value="" name="register[username]">
-                                    </li>
-                                    <li>
-                                        <label for="pass">Password <span class="required">*</span></label>
-                                        <br>
-                                        <input type="password" placeholder="Password" title="Password" id="pass" class="input-text required-entry validate-password">
-                                    </li>
-                                    <li>
-                                        <label for="pass">Confirm Password <span class="required">*</span></label>
-                                        <br>
-                                        <input type="password" placeholder="Password" title="Password" id="pass" class="input-text required-entry validate-password">
-                                    </li>
-                                </ul>
-                                <p class="required">* Required Fields</p>
-                                <div class="buttons-set">
-                                    <button id="send2" name="send" type="submit" class="button login"><span>Register</span></button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
-        </section>
-        <!--End Register Form-->
-        <!-- Footer -->
-        <footer>
-
-        </footer>
         <!-- End Footer -->
     </div>
+    <div id="content" class="container">
 
+    </div>
+
+    <!-- Libs -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!--<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/jt.timepicker/jquery.timepicker.js"></script>-->
+    <script src="bower_components/sammy/lib/sammy.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <!--<script src="./bower_components/SHA-1/sha1.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/moment/moment.js"></script>-->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+
+    <!-- App: Controllers -->
+    <!--<script src="controllers/helpers/controller-helpers.js"></script>-->
+    <script src="./scripts/controlers/homeController.js"></script>
+    <!--<script src="controllers/todosController.js"></script>
+    <script src="controllers/eventsController.js"></script>-->
+    <script src="./scripts/controlers/usersController.js"></script>
+    <!--<script src="controllers/notificationsController.js"></script>-->
+
+    <!-- App: Loaders -->
+    <script src="./scripts/templates.js"></script>
+
+    <!-- App: Start -->
+    <script src="./scripts/app.js"></script>
 
 </body>
 
