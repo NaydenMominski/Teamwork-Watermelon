@@ -21,19 +21,7 @@ var usersController = function() {
             .then(function(template) {
                 context.$element().html(template());
 
-                $('#btn-register').on('click', function() {
-                    var user = {
-                        username: $('#tb-reg-username').val(),
-                        password: $('#tb-reg-pass').val()
-                    };
-
-                    //   data.users.register(user)
-                    //     .then(function() {
-                    //       toastr.success('User registered!');
-                    //       context.redirect('#/');
-                    //       document.location.reload(true);
-                    //     });
-                });
+                $('#btn-register').on('click', registerUser)
             });
     }
 
@@ -45,6 +33,9 @@ var usersController = function() {
                 $('#create-account').on('click', function() {
                     context.redirect('#/users/register');
                 });
+                $('#btn-login').on('click', loginUser);
+
+
                 // $('#btn-register').on('click', function() {
                 //   var user = {
                 //     username: $('#tb-reg-username').val(),

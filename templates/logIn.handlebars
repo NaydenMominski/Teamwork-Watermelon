@@ -14,25 +14,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-2 registered-users"><strong>Registered Customers</strong>
+                        <div id="formLogin" class="col-2 registered-users"><strong>Registered Customers</strong>
                             <div class="content">
                                 <p>If you have an account with us, please log in.</p>
                                 <ul class="form-list">
                                     <li>
-                                        <label>Email Address <span class="required">*</span></label>
+                                        <label>User Name  <span class="required">*</span></label>
                                         <br>
-                                        <input type="text" title="Email Address" class="input-text required-entry" value="" name="login[username]">
+                                        <input type="text" title="Email Address" class="input-text required-entry"  name="login-username">
                                     </li>
                                     <li>
                                         <label for="pass">Password <span class="required">*</span></label>
                                         <br>
-                                        <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
+                                        <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login-passwd">
                                     </li>
                                 </ul>
                                 <p class="required">* Required Fields</p>
                                 <div class="buttons-set">
-                                    <button id="send2" name="send" type="submit" class="button login"><span>Login</span></button>
-                                    <a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot Your Password?</a> </div>
+                                    <button id="btn-login" name="send" type="submit" class="button login"><span>Login</span></button>
+                                    {{!--<a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Forgot Your Password?</a> </div>--}}
                             </div>
                         </div>
                     </fieldset>

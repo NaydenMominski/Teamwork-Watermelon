@@ -35,13 +35,16 @@
                     </div>
                     <div class=" col-lg-7 col-sm-8 col-md-7 col-xs-12">
                         <div class="header-top">
-                            <div class="welcome-msg hidden-xs"> Default welcome msg! </div>
+                            <div id="welcome-msg" class="welcome-msg "> </div>
 
                             <!-- Header Top Links -->
                             <div class="toplinks">
                                 <div class="links">
                                     <div class="login"><a href="#/users/login"><span class="hidden-xs">Log In</span></a></div>
+                                    <div class="logout"><a href="#/users/login"><span class="hidden-xs">Log Out</span></a></div>
+
                                 </div>
+
                             </div>
                             <!-- End Header Top Links -->
                         </div>
@@ -157,6 +160,8 @@
 
     <!-- App: Loaders -->
     <script src="./scripts/templates.js"></script>
+    <script src="./scripts/auth.js"></script>
+    <!--<script src="./scripts/utility.js"></script>-->
 
     <!-- App: Start -->
     <script src="./scripts/app.js"></script>
