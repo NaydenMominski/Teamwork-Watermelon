@@ -40,8 +40,8 @@
                             <!-- Header Top Links -->
                             <div class="toplinks">
                                 <div class="links">
-                                    <div class="login"><a href="#/users/login"><span class="hidden-xs">Log In</span></a></div>
-                                    <div class="logout"><a href="#/users/login"><span class="hidden-xs">Log Out</span></a></div>
+                                    <div id="btn-navlogin" class="login"><a href="#/login"><span class="hidden-xs">Log In</span></a></div>
+                                    <div id="btn-navlogout" class="logout"><a href="#/logout"><span class="hidden-xs">Log Out</span></a></div>
 
                                 </div>
 
@@ -134,37 +134,14 @@
 
         <!-- End Footer -->
     </div>
-    <div id="content" class="container">
+    <section id="main" class="container">
 
-    </div>
-
-    <!-- Libs -->
+    </section>
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!--<script src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="bower_components/jt.timepicker/jquery.timepicker.js"></script>-->
-    <script src="bower_components/sammy/lib/sammy.js"></script>
-    <script src="bower_components/handlebars/handlebars.js"></script>
-    <!--<script src="./bower_components/SHA-1/sha1.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/moment/moment.js"></script>-->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/toastr/toastr.js"></script>
+    <script src="./node_modules/systemjs/dist/system.js"></script>
 
-    <!-- App: Controllers -->
-    <!--<script src="controllers/helpers/controller-helpers.js"></script>-->
-    <script src="./scripts/controlers/homeController.js"></script>
-    <!--<script src="controllers/todosController.js"></script>
-    <script src="controllers/eventsController.js"></script>-->
-    <script src="./scripts/controlers/usersController.js"></script>
-    <!--<script src="controllers/notificationsController.js"></script>-->
-
-    <!-- App: Loaders -->
-    <script src="./scripts/templates.js"></script>
-    <script src="./scripts/auth.js"></script>
-    <!--<script src="./scripts/utility.js"></script>-->
-
-    <!-- App: Start -->
-    <script src="./scripts/app.js"></script>
+    <script src="js/system-config.js"></script>
 
 </body>
 
