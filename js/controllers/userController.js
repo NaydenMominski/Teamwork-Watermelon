@@ -54,7 +54,7 @@ export default {
 
             validator.lenght(password, 1, 40)
                 .then(function() {
-                    return data.users.register(username, password)
+                    return data.users.register(username, password);
                 })
                 .then(function(data) {
                     $('#tb-reg-username').val('');

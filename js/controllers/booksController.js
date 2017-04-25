@@ -16,5 +16,37 @@ export default {
             });
 
     },
+    addbook: function(context) {
+        templates.load('addbook')
+            .then(function(templateHtml) {
+                context.$element().html(templateHtml());
+
+            });
+        $('#main').on('click', '#btn-create-book', function(ev) {
+
+            var title = $('#newbook-title').val(),
+                author = $('#newbook-author').val(),
+                genre = $('#newbook-genre').val(),
+                price = $('#newbook-price').val(),
+                url = $('#newbook-url').val(),
+                description = $('#newbook-description').val();
+
+            validator.lenght(title, 1, 60)
+                .then(function() {
+                    return data.books.createBook(title, author, genre, price, url, description)
+                })
+                .then(function(data) {
+
+                    toastr.success('Create Book');
+                })
+                .catch(function(err) {
+                    toastr.error('Error');
+                });
+
+        });
+
+
+
+    },
 
 }

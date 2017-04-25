@@ -71,14 +71,14 @@ export default {
     //     });
     // },
 
-    // createBook: function(title, author, description) {
-    //     return $.ajax({
-    //         method: "POST",
-    //         url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
-    //         headers: getKinveyUserAuthHeaders(),
-    //         data: { title, author, description }
-    //     });
-    // },
+    createBook: function(title, author, genre, price, url, description) {
+        return $.ajax({
+            method: "POST",
+            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/Books",
+            headers: getKinveyUserAuthHeaders(),
+            data: { title, author, genre, price, url, description }
+        });
+    },
 
     // editBook: function(bookId, title, author, description) {
     //     return $.ajax({

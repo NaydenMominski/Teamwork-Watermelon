@@ -32,5 +32,6 @@ var sammyApp = Sammy(container, function() {
     this.get('#/logout', userController.logout);
 
     this.get('#/books', booksController.all);
+    this.get('#/newbook', booksController.addbook);
 });
 sammyApp.run('#/');

@@ -9,3 +9,7 @@
 #welcome-msg {
     display: none;
 }
+
+#book-description {
+    width: 60%;
+}

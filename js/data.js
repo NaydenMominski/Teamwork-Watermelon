@@ -14,8 +14,7 @@ function saveAuthInSession(userInfo) {
     sessionStorage.setItem('userId', userId);
     let username = userInfo.username;
     sessionStorage.setItem('username', username);
-    // $('#loggedInUser').text('Hello, ' + username + '!');
-    // $('#loggedInUser').show();
+
 }
 
 function getKinveyUserAuthHeaders() {
@@ -60,16 +59,13 @@ export default {
         //     return getSessionKey();
         // }
     },
-    // posts: {
-    //     all: function() {
-    //         // TODO: get query string
-    //         return requester.get('/post');
-    //     },
-    //     add: function(title, body) {
-    //         var data = { title, body },
-    //             headers = { 'X-SessionKey': getSessionKey() };
-
-    //         return requester.postJSON('/post', data, headers);
-    //     }
-    // }
+    books: {
+        // all: function() {
+        //     // TODO: get query string
+        //     return requester.get('/books');
+        // },
+        createBook: function(title, author, genre, price, url, description) {
+            return kinveyRequester.createBook(title, author, genre, price, url, description)
+        },
+    }
 }
