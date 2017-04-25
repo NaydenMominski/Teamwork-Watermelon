@@ -79,6 +79,7 @@ export default {
                     $('#btn-navlogout').hide();
                     $('#btn-navlogin').show();
                     $('.cart_cur_block').hide();
+                    $('#welcome-msg').hide().text('');
                     context.redirect('#/home');
                 })
                 .catch(function() {
