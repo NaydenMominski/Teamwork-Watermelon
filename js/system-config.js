@@ -12,6 +12,7 @@ System.config({
         'kinveyRequester': 'js/kinveyRequester.js',
         'data': 'js/data.js',
         'userController': 'js/controllers/userController.js',
+        'homeController': 'js/controllers/homeController.js',
         'templates': './js/templates.js',
 
         // templates
