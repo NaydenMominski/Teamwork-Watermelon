@@ -13,6 +13,7 @@ System.config({
         'data': 'js/data.js',
         'userController': 'js/controllers/userController.js',
         'homeController': 'js/controllers/homeController.js',
+        'booksController': 'js/controllers/booksController.js',
         'templates': './js/templates.js',
 
         // templates

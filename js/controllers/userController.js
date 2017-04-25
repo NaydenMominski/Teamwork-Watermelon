@@ -10,8 +10,9 @@ export default {
     login: function(context) {
         templates.load('login')
             .then(function(templateHtml) {
-                $('#main').html(templateHtml);
+                $('#main').html(templateHtml());
             });
+
         $('#main').on('click', '#btn-login', function(ev) {
 
             var username = $('#formLogin input[name=login-username]').val(),
@@ -38,16 +39,14 @@ export default {
                     context.redirect('#/home');
                 });
 
-            // .catch(function(err) {
-            //     toastr.error("ERROR");
-            // });
+
 
         });
     },
     register: function(context) {
         templates.load('register')
             .then(function(templateHtml) {
-                $('#main').html(templateHtml);
+                $('#main').html(templateHtml());
             });
         $('#main').on('click', '#btn-register', function(ev) {
             var username = $('#tb-reg-username').val(),
@@ -84,17 +83,19 @@ export default {
                 })
                 .catch(function() {
                     toastr.error('No User to Log Out ');
-                }); // .then(function(data) {
-            //     notifier.success('Logged out');
-            // window.location = window.location.origin;
-            // })
-            // .catch(function(err) {
-            //     notifier.error(err);
-            // });
-
+                });
         });
     },
-    posts: {
+    isUserLoggedIn: function() {
+        var name = sessionStorage.getItem('username');
+
+        if (!name) {
+            return false;
+        } else {
+            return true;
+        }
+    },
+    books: {
 
     }
 }
