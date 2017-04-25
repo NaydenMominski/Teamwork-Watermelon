@@ -1,7 +1,11 @@
-.top-cart-contain {
+.cart_cur_block {
     display: none;
 }
 
 #btn-navlogout {
+    display: none;
+}
+
+#welcome-msg {
     display: none;
 }
