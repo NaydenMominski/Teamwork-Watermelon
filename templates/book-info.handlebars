@@ -56,35 +56,36 @@
                                     </div>
                                 </div>
                                 <ul class="products-grid">
+                                    {{#this}}
                                     <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-12">
                                         <div class="item-inner">
                                             <div class="product-block">
                                                 <div class="product-image">
-                                                    <a href="product_detail.html">
+                                                    <a href="#">
                                                         <figure class="product-display">
                                                             <!--<div class="sale-label sale-top-left">Sale</div>-->
-                                                            <img src="./products-images/book1.jpg" class="lazyOwl product-mainpic" alt="Sample Product" style="display: block;">
-                                                            <img class="product-secondpic" alt=" Sample Product" src="./products-images/book1.jpg">
+                                                            <img src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
+                                                            <img class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 <div class="product-meta ">
                                                     <div class="product-action ">
-                                                        <a class="addcart " href="shopping_cart.html "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
+                                                        <a class="addcart " href="# "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
 
-                                                        <a class="wishlist " href="wishlist.html "> <i class="icon-heart ">&nbsp;</i> </a>
+                                                        <a class="wishlist " href="#"> <i class="icon-heart ">&nbsp;</i> </a>
 
-                                                        <a class="quickview " href="javascript:; "> <i class="icon-zoom ">&nbsp;</i> </a>
+                                                        <a class="quickview " href="# "> <i class="icon-zoom ">&nbsp;</i> </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="item-info ">
                                                 <div class="info-inner ">
-                                                    <div class="item-title "> <a href="product_detail.html " title="Retis lapen casen "> Sample Product</a> </div>
+                                                    <div class="item-title "> <a href="#" title="Retis lapen casen "> {{title}}</a> </div>
                                                     <div class="item-content ">
 
                                                         <div class="item-price ">
-                                                            <div class="price-box "> <span class="regular-price "> <span class="price ">$125.00</span> </span>
+                                                            <div class="price-box "> <span class="regular-price "> <span class="price ">${{price}}</span> </span>
                                                             </div>
                                                         </div>
                                                         <div class="rating ">
@@ -100,6 +101,7 @@
                                             </div>
                                         </div>
                                     </li>
+                                 {{/this}}
                                 </ul>
                             </div>
                         </div>
@@ -109,21 +111,21 @@
                             <div class="block-title"> Categories </div>
                             <div class="box-content box-category">
                                 <ul id="magicat">
-                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#fashion.html"><span>Women</span></a>
+                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#"><span>Women</span></a>
                                         </span>
 
                                     </li>
-                                    <li class="level0- level0"> <span class="magicat-cat"><a href="#electronics.html"><span>Men</span></a>
+                                    <li class="level0- level0"> <span class="magicat-cat"><a href="#l"><span>Men</span></a>
                                         </span>
                                     </li>
-                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#shoes.html"><span>Shoes</span></a>
+                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#"><span>Shoes</span></a>
                                         </span>
                                     </li>
-                                    <li class="level0- level0  watches open"> <span class="magicat-cat"><a href="#watches.html"><span>Watches</span></a>
+                                    <li class="level0- level0  watches open"> <span class="magicat-cat"><a href="#"><span>Watches</span></a>
                                         </span>
 
                                     </li>
-                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#furniture.html"><span>Furniture</span></a>
+                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#"><span>Furniture</span></a>
                                         </span>
                                     </li>
                                 </ul>

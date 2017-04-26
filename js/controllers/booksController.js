@@ -8,16 +8,24 @@ import notifier from 'js/notifier.js'
 export default {
 
 
-    all: function(context) {
-        templates.load('book-info')
-            .then(function(templateHtml) {
-                context.$element().html(templateHtml);
+    all: function() {
+        Promise.all([data.books.all(), templates.load('book-info')])
+            .then(function([data, template]) {
+                $('#main').html(template(data));
+            })
 
-            });
+        // $('#nav-all-books').on('click', function(ev) {
+        //     data.books.all();
+        // });
+        // return templates.load('book-info')
+        //     .then(function(templateHtml) {
+        //         context.$element().html(templateHtml());
+
+        //     });
 
     },
     addbook: function(context) {
-        templates.load('addbook')
+        templates.load('book-detail')
             .then(function(templateHtml) {
                 context.$element().html(templateHtml());
 
@@ -33,7 +41,7 @@ export default {
 
             validator.lenght(title, 1, 60)
                 .then(function() {
-                    return data.books.createBook(title, author, genre, price, url, description)
+                    return data.books.createBook(title, author, genre, price, url, description);
                 })
                 .then(function(data) {
 

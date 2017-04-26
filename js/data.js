@@ -60,10 +60,10 @@ export default {
         // }
     },
     books: {
-        // all: function() {
-        //     // TODO: get query string
-        //     return requester.get('/books');
-        // },
+        all: function() {
+
+            return kinveyRequester.findAllBooks();
+        },
         createBook: function(title, author, genre, price, url, description) {
             return kinveyRequester.createBook(title, author, genre, price, url, description)
         },
