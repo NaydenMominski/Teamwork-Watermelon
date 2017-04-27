@@ -13,6 +13,66 @@ export default {
                 $('#main').html(templateHtml());
             });
 
+
+    },
+    register: function() {
+        templates.load('register')
+            .then(function(templateHtml) {
+                $('#main').html(templateHtml());
+            });
+    },
+
+    logout: function() {
+        $('#btn-navlogout').click(function() {
+            data.users.logout()
+                .then(function() {
+                    toastr.success(sessionStorage.getItem('username') + ' Log Out');
+                    sessionStorage.clear();
+
+                    $('#btn-navlogout').hide();
+                    $('#btn-navlogin').show();
+                    $('.cart_cur_block').hide();
+                    $('#welcome-msg').hide().text('');
+                    // context.redirect('#/home');
+                    window.location = window.location.origin + '#/home';
+                })
+                .catch(function() {
+                    toastr.error('No User to Log Out ');
+                });
+        });
+    },
+
+    isUserLoggedIn: function() {
+        var name = sessionStorage.getItem('username');
+
+        if (!name) {
+            return false;
+        } else {
+            return true;
+        }
+    },
+
+    userEvent: function() {
+        $('#main').on('click', '#btn-register', function(ev) {
+            var username = $('#tb-reg-username').val(),
+                password = $('#tb-reg-password').val();
+
+            validator.lenght(password, 1, 40)
+                .then(function() {
+                    return data.users.register(username, password);
+                })
+                .then(function(data) {
+                    $('#tb-reg-username').val('');
+                    $('#tb-reg-password').val('');
+                    toastr.success('User Registered');
+                    // context.redirect('#/login');
+                    window.location = window.location.origin + '#/login';
+                })
+                .catch(function(err) {
+                    toastr.error('Error');
+                });
+        });
+
         $('#main').on('click', '#btn-login', function(ev) {
 
             var username = $('#formLogin input[name=login-username]').val(),
@@ -41,67 +101,9 @@ export default {
                     // context.redirect('#/home');
                     window.location = window.location.origin + '#/books';
                 });
-
-
-
-        });
-    },
-    register: function() {
-        templates.load('register')
-            .then(function(templateHtml) {
-                $('#main').html(templateHtml());
-            });
-        $('#main').on('click', '#btn-register', function(ev) {
-            var username = $('#tb-reg-username').val(),
-                password = $('#tb-reg-password').val();
-
-            validator.lenght(password, 1, 40)
-                .then(function() {
-                    return data.users.register(username, password);
-                })
-                .then(function(data) {
-                    $('#tb-reg-username').val('');
-                    $('#tb-reg-password').val('');
-                    toastr.success('User Registered');
-                    // context.redirect('#/login');
-                    window.location = window.location.origin + '#/login';
-                })
-                .catch(function(err) {
-                    toastr.error('Error');
-                });
-
         });
 
-    },
-    logout: function() {
-        $('#btn-navlogout').click(function() {
-            data.users.logout()
-                .then(function() {
-                    toastr.success(sessionStorage.getItem('username') + ' Log Out');
-                    sessionStorage.clear();
 
-                    $('#btn-navlogout').hide();
-                    $('#btn-navlogin').show();
-                    $('.cart_cur_block').hide();
-                    $('#welcome-msg').hide().text('');
-                    // context.redirect('#/home');
-                    window.location = window.location.origin + '#/home';
-                })
-                .catch(function() {
-                    toastr.error('No User to Log Out ');
-                });
-        });
-    },
-    isUserLoggedIn: function() {
-        var name = sessionStorage.getItem('username');
-
-        if (!name) {
-            return false;
-        } else {
-            return true;
-        }
-    },
-    books: {
 
     }
-}
+};
