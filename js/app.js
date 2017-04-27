@@ -33,5 +33,7 @@ var sammyApp = Sammy(container, function() {
 
     this.get('#/books', booksController.all);
     this.get('#/newbook', booksController.addbook);
+
+    this.get('#/bookinfo', booksController.bookinfo);
 });
 sammyApp.run('#/');

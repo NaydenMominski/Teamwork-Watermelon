@@ -60,16 +60,38 @@ export default {
             url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
             headers: getKinveyUserAuthHeaders()
         });
-    },
 
-    // findBookById,
-    // function(bookId) {
+
+    },
+    getbookinfo: function(bookId) {
+        // let bookId = "59007c34c8ad28df66075645";
+        return $.ajax({
+            method: 'GET',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books/' + bookId,
+            headers: getKinveyUserAuthHeaders(),
+
+        });
+    },
+    // bookForEdit: function(editbookId) {
+    //     //console.log(adEdit)
     //     return $.ajax({
-    //         method: "GET",
-    //         url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
-    //         headers: getKinveyUserAuthHeaders()
+    //         method: 'GET',
+    //         url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books/' + editbookId,
+    //         headers: getKinveyUserAuthHeaders(),
+
     //     });
     // },
+    findUserBooks: function() {
+        $.ajax({
+            method: "GET",
+            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
+            headers: getKinveyUserAuthHeaders()
+        });
+        // console.log(this);
+
+    },
+
+
 
     createBook: function(title, author, genre, price, url, description) {
         return $.ajax({

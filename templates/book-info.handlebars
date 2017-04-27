@@ -55,23 +55,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <ul class="products-grid">
+                                <ul id="products-image" class="products-grid">
                                     {{#this}}
                                     <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-12">
                                         <div class="item-inner">
                                             <div class="product-block">
-                                                <div class="product-image">
-                                                    <a href="#">
-                                                        <figure class="product-display">
+                                                <div id="product-image" class="product-image">
+                                                    {{!--<a href="#">--}}
+                                                        <figure data-creator="{{_acl.creator}}" data-id="{{_id}}" class="product-display">
+                                                            <a href="#" data-creatot="{{_acl.creator}}" data-id="{{_id}}" class="hidden"  ></a>
                                                             <!--<div class="sale-label sale-top-left">Sale</div>-->
-                                                            <img src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
-                                                            <img class="product-secondpic" alt="{{title}}" src="{{url}}">
+                                                            <img href="#/bookinfo"   src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
+                                                            <img href="#/bookinfo" class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 <div class="product-meta ">
                                                     <div class="product-action ">
-                                                        <a class="addcart " href="# "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
+                                                        <a  class="addcart " href="# "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
 
                                                         <a class="wishlist " href="#"> <i class="icon-heart ">&nbsp;</i> </a>
 

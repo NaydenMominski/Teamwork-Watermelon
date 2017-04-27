@@ -64,8 +64,16 @@ export default {
 
             return kinveyRequester.findAllBooks();
         },
+        bookinfo: function(bookId) {
+            return kinveyRequester.getbookinfo(bookId);
+        },
+
         createBook: function(title, author, genre, price, url, description) {
             return kinveyRequester.createBook(title, author, genre, price, url, description)
         },
+        bookForEdit: function(editbookId) {
+            return kinveyRequester.bookForEdit(editbookId);
+        },
+
     }
 }
