@@ -6861,10 +6861,14 @@ li .list {
     background-position: 16px 16px;
 }
 
-.product-view .product-shop button.button.btn-cart:before {
+
+/*.product-view .product-shop button.button.btn-cart:before {
     content: "\f07a";
     font-family: 'FontAwesome';
-}
+}*/
+
+
+/*kokoboko*/
 
 .product-view .flexslider-thumb {
     margin: auto;

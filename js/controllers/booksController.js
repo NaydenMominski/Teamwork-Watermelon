@@ -8,7 +8,7 @@ import notifier from 'js/notifier.js'
 export default {
 
     all: function() {
-        Promise.all([data.books.all(), templates.load('book-info')])
+        Promise.all([data.books.all(), templates.load('book-all')])
             .then(function([data, template]) {
                 $('#main').html(template(data));
 
@@ -16,12 +16,25 @@ export default {
     },
     showBookByID: function() {
         let bookId = this.params['bookID'];
-        Promise.all([data.books.bookinfo(bookId), templates.load('book-detail')])
+        Promise.all([data.books.bookinfo(bookId), templates.load('book-details')])
             .then(function([data, template]) {
                 $('#main').html(template(data));
 
             });
         window.location = window.location.origin + '#/books/' + bookId;
+    },
+
+    showUserBookByID: function() {
+        let bookId = this.params['bookID'];
+
+        Promise.all([data.books.bookinfo(bookId), templates.load('userbook-details')])
+            .then(function([data, template]) {
+                $('#main').html(template(data));
+
+            });
+        window.location = window.location.origin + '#/userbooks/' + bookId;
+    },
+    deletebook: function() {
 
     },
     addbook: function(context) {
@@ -33,25 +46,18 @@ export default {
 
     },
     userbooks: function() {
-        Promise.all([data.books.all(), templates.load('book-info')])
+
+        Promise.all([data.books.all(), templates.load('userbook-all')])
             .then(function([data, template]) {
-                $('#main').html(template(data));
-            })
-    },
-    bookevent: function() {
-        $("#main").on('click', "#products-image", function(ev) {
 
-            let bookId = $(ev.target.parentElement).attr("data-id");
-
-            Promise.all([data.books.bookinfo(bookId), templates.load('book-detail')])
-                .then(function([data, template]) {
-                    $('#main').html(template(data));
-
+                var db_curentuser = $.grep(data, function(v) {
+                    return v._acl.creator === sessionStorage.getItem('userId');
                 });
-            window.location = window.location.origin + '#/books/' + bookId;
-        });
+                $('#main').html(template(db_curentuser));
+            });
+    },
 
-
+    bookevent: function() {
 
         $('#main').on('click', '#btn-create-book', function(ev) {
 
@@ -69,6 +75,52 @@ export default {
                 .then(function(data) {
 
                     toastr.success('Create Book');
+                })
+                .catch(function(err) {
+                    toastr.error('Error');
+                });
+
+        });
+
+        $('#main').on('click', '#btn-delbook', function(ev) {
+            let bookID = $('#user_book_form input').val();
+            data.books.bookForDelete(bookID)
+                .then(function(response) {
+                    toastr.success('Book Deleted');
+                    window.location = window.location.origin + '#/userbooks';
+                }, function(error) {
+                    toastr.error('Unsuccessful!');
+                    // context.redirect('#/home');
+                    // window.location = window.location.origin + '#/userbooks';
+                });
+        });
+        $('#main').on('click', '#btn-editbook', function(ev) {
+            let bookID = $('#user_book_form input').val();
+            Promise.all([data.books.bookinfo(bookID), templates.load('editbook')])
+                .then(function([data, template]) {
+                    $('#main').html(template(data));
+
+                });
+
+        });
+
+        $('#main').on('click', '#btn-edit-book', function(ev) {
+            let bookID = $('#book_for_edit').attr('data-id');
+
+            var title = $('#newbook-title').val(),
+                author = $('#newbook-author').val(),
+                genre = $('#newbook-genre').val(),
+                price = $('#newbook-price').val(),
+                url = $('#newbook-url').val(),
+                description = $('#newbook-description').val();
+
+            validator.lenght(title, 1, 60)
+                .then(function() {
+                    return data.books.bookForEdit(bookID, title, author, genre, price, url, description);
+                })
+                .then(function(data) {
+                    window.location = window.location.origin + '#/userbooks';
+                    toastr.success('Edit book Successful');
                 })
                 .catch(function(err) {
                     toastr.error('Error');

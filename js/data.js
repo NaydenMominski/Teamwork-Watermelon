@@ -71,8 +71,12 @@ export default {
         createBook: function(title, author, genre, price, url, description) {
             return kinveyRequester.createBook(title, author, genre, price, url, description)
         },
-        bookForEdit: function(editbookId) {
-            return kinveyRequester.bookForEdit(editbookId);
+        bookForEdit: function(bookId, title, author, genre, price, url, description) {
+
+            return kinveyRequester.editBook(bookId, title, author, genre, price, url, description);
+        },
+        bookForDelete: function(bookId) {
+            return kinveyRequester.deleteBook(bookId);
         },
 
     }

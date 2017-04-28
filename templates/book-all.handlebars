@@ -63,16 +63,18 @@
                                                 <div id="product-image" class="product-image">
                                                     {{!--<a href="#">--}}
                                                         <figure data-creator="{{_acl.creator}}" data-id="{{_id}}" class="product-display">
-                                                            <a href="#" data-creatot="{{_acl.creator}}" data-id="{{_id}}" class="hidden"  ></a>
-                                                            <!--<div class="sale-label sale-top-left">Sale</div>-->
-                                                            <img href="#/bookinfo"   src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
-                                                            <img href="#/bookinfo" class="product-secondpic" alt="{{title}}" src="{{url}}">
+                                                           
+                                                         <a href="#/books/{{_id}}">
+                                                          <img href="#/books/{{_id}}"   src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
+                                                          <img href="#/books/{{_id}}"  class="product-secondpic" alt="{{title}}" src="{{url}}">
+                                                         </a>
+                                                        
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 <div class="product-meta ">
                                                     <div class="product-action ">
-                                                        <a  class="addcart " href="# "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
+                                                        <a  class="addcart " href="#"> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
 
                                                         <a class="wishlist " href="#"> <i class="icon-heart ">&nbsp;</i> </a>
 

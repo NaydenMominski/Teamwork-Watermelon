@@ -102,20 +102,20 @@ export default {
         });
     },
 
-    // editBook: function(bookId, title, author, description) {
-    //     return $.ajax({
-    //         method: "PUT",
-    //         url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
-    //         headers: getKinveyUserAuthHeaders(),
-    //         data: { title, author, description }
-    //     });
-    // },
+    editBook: function(bookId, title, author, genre, price, url, description) {
+        return $.ajax({
+            method: "PUT",
+            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
+            headers: getKinveyUserAuthHeaders(),
+            data: { title, author, genre, price, url, description }
+        });
+    },
 
-    // deleteBook: function(bookId) {
-    //     return $.ajax({
-    //         method: "DELETE",
-    //         url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
-    //         headers: getKinveyUserAuthHeaders()
-    //     });
-    // }
+    deleteBook: function(bookId) {
+        return $.ajax({
+            method: "DELETE",
+            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
+            headers: getKinveyUserAuthHeaders()
+        });
+    }
 }
