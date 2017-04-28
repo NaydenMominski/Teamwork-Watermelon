@@ -73,7 +73,7 @@ export default {
                     return data.books.createBook(title, author, genre, price, url, description);
                 })
                 .then(function(data) {
-
+                    window.location = window.location.origin + '#/books';
                     toastr.success('Create Book');
                 })
                 .catch(function(err) {

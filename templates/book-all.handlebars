@@ -63,11 +63,17 @@
                                                 <div id="product-image" class="product-image">
                                                     {{!--<a href="#">--}}
                                                         <figure data-creator="{{_acl.creator}}" data-id="{{_id}}" class="product-display">
-                                                           
-                                                         <a href="#/books/{{_id}}">
-                                                          <img href="#/books/{{_id}}"   src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
-                                                          <img href="#/books/{{_id}}"  class="product-secondpic" alt="{{title}}" src="{{url}}">
+                                                        {{#if url}}
+                                                           <a href="#/books/{{_id}}">
+                                                            <img  src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
+                                                            <img   class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                          </a>
+                                                         {{else}}
+                                                          <a href="#/books/{{_id}}">
+                                                            <img  src="../products-images/product1.jpg" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
+                                                            <img   class="product-secondpic" alt="{{title}}" src="../products-images/product1.jpg">
+                                                         </a>
+                                                          {{/if}}
                                                         
                                                         </figure>
                                                     </a>

@@ -63,12 +63,18 @@
                                                 <div id="userproducts-image" class="product-image">
                                                     {{!--<a href="#">--}}
                                                         <figure userdata-creator="{{_acl.creator}}" userdata-id="{{_id}}" class="product-display">
-                                                          
+                                                          {{#if url}}
                                                           <a href="#/userbooks/{{_id}}">
                                                             <img  src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                          </a>
+                                                         {{else}}
 
+                                                         <a href="#/userbooks/{{_id}}">
+                                                            <img  src="../products-images/product1.jpg" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
+                                                            <img   class="product-secondpic" alt="{{title}}" src="../products-images/product1.jpg">
+                                                         </a>
+                                                            {{/if}}
                                                         </figure>
                                                     </a>
                                                 </div>
