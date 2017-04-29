@@ -7,11 +7,29 @@ import notifier from 'js/notifier.js'
 
 export default {
 
-    all: function() {
+    all: function(sammy) {
+        var size = +sammy.params['size'] || 6,
+            page = +sammy.params['page'] || 0;
+
         Promise.all([data.books.all(), templates.load('book-all')])
             .then(function([data, template]) {
-                $('#main').html(template(data));
 
+                var pagesLen = ((data.length / size) | 0) + 1,
+                    pages = [];
+
+                for (var i = 0; i < pagesLen; i += 1) {
+                    pages.push({
+                        size: size,
+                        page: i,
+                        displayPage: i + 1
+                    });
+                }
+                data = data.slice(page * size, (page + 1) * size);
+
+                $('#main').html(template({
+                    books: data,
+                    pages: pages
+                }));
             });
     },
     showBookByID: function() {
@@ -45,7 +63,9 @@ export default {
             });
 
     },
-    userbooks: function() {
+    userbooks: function(sammy) {
+        var size = +sammy.params['size'] || 6,
+            page = +sammy.params['page'] || 0;
 
         Promise.all([data.books.all(), templates.load('userbook-all')])
             .then(function([data, template]) {
@@ -53,7 +73,24 @@ export default {
                 var db_curentuser = $.grep(data, function(v) {
                     return v._acl.creator === sessionStorage.getItem('userId');
                 });
-                $('#main').html(template(db_curentuser));
+
+                var pagesLen = ((db_curentuser.length / size) | 0) + 1,
+                    pages = [];
+
+                for (var i = 0; i < pagesLen; i += 1) {
+                    pages.push({
+                        size: size,
+                        page: i,
+                        displayPage: i + 1
+                    });
+                }
+                db_curentuser = db_curentuser.slice(page * size, (page + 1) * size);
+
+                $('#main').html(template({
+                    books: db_curentuser,
+                    pages: pages
+                }));
+                // $('#main').html(template(db_curentuser));
             });
     },
 
