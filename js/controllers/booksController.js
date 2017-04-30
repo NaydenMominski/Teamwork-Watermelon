@@ -3,19 +3,37 @@ import 'jquery'
 import data from 'js/data.js'
 import templates from 'js/templates.js'
 import validator from 'js/validator.js'
-import notifier from 'js/notifier.js'
+// import utils from 'js/utils.js'
 
 export default {
 
-    all: function(sammy) {
-        var size = +sammy.params['size'] || 6,
-            page = +sammy.params['page'] || 0;
+    all: function() {
+        // var size = +sammy.params['size'] || 6,
+        //     page = +sammy.params['page'] || 0;
+        let size = +this.params.size || 6,
+            page = +this.params.page || 0,
+            query = this.params.query;
+
+        console.log(query);
 
         Promise.all([data.books.all(), templates.load('book-all')])
             .then(function([data, template]) {
 
+                // query = encodeURIComponent(query.trim());
+                console.log(query);
+
+
+                if (query) {
+                    console.log(query);
+                    query = decodeURIComponent(query.trim());
+                    data = data.filter(function(params) {
+                        return params.genre === query;
+                    });
+                }
+
                 var pagesLen = ((data.length / size) | 0) + 1,
-                    pages = [];
+                    pages = [],
+                    queries = [];
 
                 for (var i = 0; i < pagesLen; i += 1) {
                     pages.push({
@@ -24,13 +42,40 @@ export default {
                         displayPage: i + 1
                     });
                 }
+                queries.push({
+                    query: query
+                });
+                // -----sorting-----
+                // function compare(a, b) {
+                //     return a.title.localeCompare(b.title);
+                // }
+
+                // data.sort(compare);
+                // console.log($('#dd-sorting option:selected').text());
                 data = data.slice(page * size, (page + 1) * size);
 
                 $('#main').html(template({
                     books: data,
-                    pages: pages
+                    pages: pages,
+                    queries: queries
+
                 }));
             });
+        $('#main').on('change', '#dd-sorting', function(e) {
+            // console.log(this.options[e.target.selectedIndex].text);
+            // alert($("#dd-sorting option:selected").text());
+            console.log($("#dd-sorting option:selected").val());
+        });
+
+
+
+        // $('#main').on('click', '#btn-filter', function(ev) {
+        //     var size = $('#dd-sorting option:selected').text();
+        //     console.log(size);
+        //     ,
+        //         page = 0;
+        //     sammy.redirect('#/posts/' + size + '/' + page);
+        // });
     },
     showBookByID: function() {
         let bookId = this.params['bookID'];
@@ -39,7 +84,7 @@ export default {
                 $('#main').html(template(data));
 
             });
-        window.location = window.location.origin + '#/books/' + bookId;
+        // window.location = window.location.origin + '#/book/' + bookId;
     },
 
     showUserBookByID: function() {
@@ -50,11 +95,9 @@ export default {
                 $('#main').html(template(data));
 
             });
-        window.location = window.location.origin + '#/userbooks/' + bookId;
+        // window.location = window.location.origin + '#/userbook/' + bookId;
     },
-    deletebook: function() {
 
-    },
     addbook: function(context) {
         templates.load('addbook')
             .then(function(templateHtml) {
@@ -63,9 +106,10 @@ export default {
             });
 
     },
-    userbooks: function(sammy) {
-        var size = +sammy.params['size'] || 6,
-            page = +sammy.params['page'] || 0;
+    userbooks: function() {
+        let size = +this.params.size || 6,
+            page = +this.params.page || 0;
+
 
         Promise.all([data.books.all(), templates.load('userbook-all')])
             .then(function([data, template]) {
@@ -90,7 +134,7 @@ export default {
                     books: db_curentuser,
                     pages: pages
                 }));
-                // $('#main').html(template(db_curentuser));
+
             });
     },
 

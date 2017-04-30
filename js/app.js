@@ -29,15 +29,18 @@ var sammyApp = Sammy(container, function() {
     booksController.bookevent();
     userController.userEvent();
 
+    // this.get('#/home/:id', function() {
+    //     console.log(this.params.id);
+    // });
     this.get('#/home', homeController.all);
     this.get('#/register', userController.register);
     this.get('#/login', userController.login);
     this.get('#/logout', userController.logout);
 
     this.get('#/books', booksController.all);
-    this.get('#/books/:bookID', booksController.showBookByID);
-    this.get('#/userbooks/:bookID', booksController.showUserBookByID);
-    this.get('#/books/:size/:page', booksController.all);
+    this.get('#/book/:bookID', booksController.showBookByID);
+    this.get('#/userbook/:bookID', booksController.showUserBookByID);
+    this.get('#/books/:query', booksController.all);
     this.get('#/userbooks/:size/:page', booksController.userbooks);
     this.get('#/newbook', booksController.addbook);
     this.get('#/userbooks', booksController.userbooks);

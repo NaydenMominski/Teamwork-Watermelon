@@ -36,9 +36,9 @@
                                             <ul>
                                                 <li><a href="#">Size <span class="right-arrow"></span></a>
                                                     <ul>
-                                                        <li><a href="#/userbooks/6/0">6</a></li>
-                                                        <li><a href="#/userbooks/9/0">9</a></li>
-                                                        <li><a href="#/userbooks/12/0">12</a></li>
+                                                        <li><a href="#/userbooks?page=0&size=6">6</a></li>
+                                                        <li><a href="#/userbooks?page=0&size=9">9</a></li>
+                                                        <li><a href="#/userbooks?page=0&size=12">12</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -52,7 +52,7 @@
                                                 <li><a href="#">3</a></li>
                                                 <li><a href="#">&raquo;</a></li>--}}
                                                  {{#pages}}
-                                                <li><a href="#/userbooks/{{size}}/{{page}}">{{displayPage}}</a></li>
+                                                <li><a href="#/userbooks?page={{page}}&size={{size}}">{{displayPage}}</a></li>
                                                 {{/pages}}
                                             </ul>
                                         </div>
@@ -67,13 +67,13 @@
                                                     {{!--<a href="#">--}}
                                                         <figure userdata-creator="{{_acl.creator}}" userdata-id="{{_id}}" class="product-display">
                                                           {{#if url}}
-                                                          <a href="#/userbooks/{{_id}}">
+                                                          <a href="#/userbook/{{_id}}">
                                                             <img  src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                          </a>
                                                          {{else}}
 
-                                                         <a href="#/userbooks/{{_id}}">
+                                                         <a href="#/userbook/{{_id}}">
                                                             <img  src="../products-images/product1.jpg" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="../products-images/product1.jpg">
                                                          </a>

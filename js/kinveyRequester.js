@@ -42,10 +42,6 @@ export default {
             // error: function(err) { reject(err) }
         });
     },
-
-
-
-
     logoutUser: function() {
         return $.ajax({
             method: "POST",
@@ -72,15 +68,7 @@ export default {
 
         });
     },
-    // bookForEdit: function(editbookId) {
-    //     //console.log(adEdit)
-    //     return $.ajax({
-    //         method: 'GET',
-    //         url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books/' + editbookId,
-    //         headers: getKinveyUserAuthHeaders(),
 
-    //     });
-    // },
     findUserBooks: function() {
         $.ajax({
             method: "GET",
@@ -88,11 +76,7 @@ export default {
             headers: getKinveyUserAuthHeaders()
         });
         // console.log(this);
-
     },
-
-
-
     createBook: function(title, author, genre, price, url, description) {
         return $.ajax({
             method: "POST",
@@ -110,12 +94,21 @@ export default {
             data: { title, author, genre, price, url, description }
         });
     },
-
     deleteBook: function(bookId) {
         return $.ajax({
             method: "DELETE",
             url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
             headers: getKinveyUserAuthHeaders()
         });
-    }
+    },
+    sortBooksAscending: function(bySortingElement) {
+        return $.ajax({
+            method: "GET",
+            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books?query={}&sort=" + bySortingElement,
+            headers: getKinveyUserAuthHeaders()
+        });
+
+
+    },
+
 }

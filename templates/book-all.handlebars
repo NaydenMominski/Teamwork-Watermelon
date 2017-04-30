@@ -15,30 +15,45 @@
                             </div>
                             <div class="category-products">
                                 <div class="toolbar">
-                                    <div class="sorter">
+                                    {{!--<div class="sorter">
                                         <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>
-                                    </div>
-                                    <div id="sort-by">
+                                    </div>--}}
+                                    {{!--<div id="sort-by">
                                         <label class="left">Sort By: </label>
                                         <ul>
-                                            <li><a href="#">Position<span class="right-arrow"></span></a>
+                                            <li><a href="#">Title<span class="right-arrow"></span></a>
                                                 <ul>
-                                                    <li><a href="#">Name</a></li>
+                                                    <li><a href="#">Title</a></li>
                                                     <li><a href="#">Price</a></li>
-                                                    <li><a href="#">Position</a></li>
+                                                  
                                                 </ul>
                                             </li>
                                         </ul>
-                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>
+                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>--}}
+                                    <span>Sorting:</span>
+                                    <select id="dd-sorting">
+                                    <option value="title" >By Title-Ascending</option>
+                                    <option value="title" >By Title-Descending</option>
+                                     <option value="price">By Price-Ascending</option>
+                                    <option value="price">By Price-Descending</option>
+                                   
+                                    </select>
                                     <div class="pager">
                                         <div id="limiter">
                                             <label>View: </label>
                                             <ul> 
                                                 <li><a href="#">Size <span class="right-arrow"></span></a>
-                                                     <ul>
-                                                        <li><a href="#/books/6/0">6</a></li>
-                                                        <li><a href="#/books/9/0">9</a></li>
-                                                        <li><a href="#/books/12/0">12</a></li>
+                                                     <ul>{{#queries}}
+                                                         {{#if query}}
+                                                        <li><a href="#/books/{{query}}?page=0&size=6">6</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=9">9</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=12">12</a></li>
+                                                         {{else}}
+                                                        <li><a href="#/books?page=0&size=6">6</a></li>
+                                                        <li><a href="#/books?page=0&size=9">9</a></li>
+                                                        <li><a href="#/books?page=0&size=12">12</a></li>
+                                                        {{/if}}
+                                                        {{/queries}}
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -49,7 +64,11 @@
                                                 {{!--<li><a href="#">&laquo;</a></li>
                                                 <li class="active"><a href="#">1</a></li>--}}
                                                 {{#pages}}
-                                                <li><a href="#/books/{{size}}/{{page}}">{{displayPage}}</a></li>
+                                                {{#if query}}
+                                                <li><a href="#/books/{{query}}?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                {{else}}
+                                                 <li><a href="#/books?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                 {{/if}}
                                                 {{/pages}}
                                                 {{!--<li><a href="#">3</a></li>
                                                 <li><a href="#">&raquo;</a></li>--}}
@@ -66,12 +85,12 @@
                                                     {{!--<a href="#">--}}
                                                         <figure data-creator="{{_acl.creator}}" data-id="{{_id}}" class="product-display">
                                                         {{#if url}}
-                                                           <a href="#/books/{{_id}}">
+                                                           <a href="#/book/{{_id}}">
                                                             <img  src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                          </a>
                                                          {{else}}
-                                                          <a href="#/books/{{_id}}">
+                                                          <a href="#/book/{{_id}}">
                                                             <img  src="../products-images/product1.jpg" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="../products-images/product1.jpg">
                                                          </a>
@@ -122,7 +141,8 @@
                             <div class="block-title"> Categories </div>
                             <div class="box-content box-category">
                                 <ul id="magicat">
-                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#"><span>Women</span></a>
+                                    
+                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/books/Science%20and%20Technology"><span>Science and Technology</span></a>
                                         </span>
 
                                     </li>

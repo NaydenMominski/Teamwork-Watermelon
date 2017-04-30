@@ -15,6 +15,7 @@ System.config({
         'homeController': 'js/controllers/homeController.js',
         'booksController': 'js/controllers/booksController.js',
         'templates': './js/templates.js',
+        // 'utils': './js/utils.js',
 
         // templates
         // 'homeTemplate': 'templates/home.handlebars',

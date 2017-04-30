@@ -63,6 +63,7 @@ export default {
         all: function() {
 
             return kinveyRequester.findAllBooks();
+
         },
         bookinfo: function(bookId) {
             return kinveyRequester.getbookinfo(bookId);
