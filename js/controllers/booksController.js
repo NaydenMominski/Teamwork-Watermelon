@@ -13,18 +13,19 @@ export default {
         let size = +this.params.size || 6,
             page = +this.params.page || 0,
             query = this.params.query;
+        //     sortBy = this.params.sortBy;
 
-        console.log(query);
+        // console.log(sortBy);
 
         Promise.all([data.books.all(), templates.load('book-all')])
             .then(function([data, template]) {
 
-                // query = encodeURIComponent(query.trim());
-                console.log(query);
+                // searchPattern = decodeURI(params.productName).toLowerCase();
+                // console.log(searchPattern);
 
 
                 if (query) {
-                    console.log(query);
+                    // console.log(query);
                     query = decodeURIComponent(query.trim());
                     data = data.filter(function(params) {
                         return params.genre === query;
@@ -46,12 +47,21 @@ export default {
                     query: query
                 });
                 // -----sorting-----
-                // function compare(a, b) {
-                //     return a.title.localeCompare(b.title);
+
+                // if (sortBy) {
+                //     if (sortBy === "title") {
+                //         data.sort((a, b) => { return a.title.localeCompare(b.title); });
+                //     } else if (sortBy === "titledesc") {
+                //         data.sort((a, b) => { return b.title.localeCompare(a.title); });
+                //     } else if (sortBy === "price") {
+                //         data.sort((a, b) => { return a.price.localeCompare(b.price); });
+                //     } else if (sortBy === "pricedesc") {
+                //         data.sort((a, b) => { return b.price.localeCompare(a.price); });
+                //     }
+
                 // }
 
-                // data.sort(compare);
-                // console.log($('#dd-sorting option:selected').text());
+                // log($('#dd-sorting option:selected').text());
                 data = data.slice(page * size, (page + 1) * size);
 
                 $('#main').html(template({
@@ -61,14 +71,6 @@ export default {
 
                 }));
             });
-        $('#main').on('change', '#dd-sorting', function(e) {
-            // console.log(this.options[e.target.selectedIndex].text);
-            // alert($("#dd-sorting option:selected").text());
-            console.log($("#dd-sorting option:selected").val());
-        });
-
-
-
         // $('#main').on('click', '#btn-filter', function(ev) {
         //     var size = $('#dd-sorting option:selected').text();
         //     console.log(size);
@@ -137,6 +139,46 @@ export default {
 
             });
     },
+
+    search: function(params) {
+
+        console.log("search");
+        // data.books.all()
+        //     .then((booksObj) => {
+        //         let tempBooks = [],
+        //             searchPattern = decodeURI(params.productName).toLowerCase();
+
+        //         for (let bookID in booksObj) {
+        //             tempBooks.push(booksObj[bookID])
+        //             tempBooks[tempBooks.length - 1]._id = bookID;
+        //         }
+
+        //         let filteredBooks = [];
+        //         for (let book of tempBooks) {
+        //             if (book.title.toLowerCase().indexOf(searchPattern) > 0 ||
+        //                 book.author.toLowerCase().indexOf(searchPattern) > 0 ||
+        //                 book.category.toLowerCase().indexOf(searchPattern) > 0) {
+        //                 filteredBooks.push(book);
+        //             }
+        //         }
+
+        //         console.log(tempBooks);
+        //         console.log(filteredBooks);
+
+        //         let body = {
+        //             searchValue: decodeURI(params.productName)
+        //         };
+        //         if (filteredBooks.length > 0) {
+        //             body.books = filteredBooks;
+        //         }
+
+        //         return templates.compile('search', body);
+        //     })
+        //     .then((html) => {
+        //         _changePageHtml(html);
+        //     });
+    },
+
 
     bookevent: function() {
 
@@ -208,5 +250,51 @@ export default {
                 });
 
         });
+        $('#btn-shoping-card').on('click', function(e) {
+            console.log("tuk sam  nnnn");
+            $('#shoping-card-content').toggleClass("show"); //you can list several class names 
+            e.preventDefault();
+            Promise.all([data.books.all(), templates.load('shoping-card')])
+                .then(function([data, template]) {
+
+                    var db_curentuser = $.grep(data, function(v) {
+                        return v._acl.creator === sessionStorage.getItem('userId');
+                    });
+
+                    let totalPrice = 0;
+
+                    db_curentuser.forEach(function(book) {
+                        totalPrice += +book.price;
+                    });
+                    totalPrice = parseFloat(totalPrice.toString()).toFixed(2);
+
+                    console.log(totalPrice);
+                    $('#shoping-card-content').html(template({
+                        books: db_curentuser,
+                        totalPrice: totalPrice
+                    }));
+
+
+                });
+        });
+
+
+        // $('#main').on('change', '#dd-sorting', function(e) {
+        //     if ($("#dd-sorting option:selected").val() === "title") {
+        //         window.location = window.location + '&sortBy=title';
+        //     } else if ($("#dd-sorting option:selected").val() === "titledesc") {
+        //         window.location = window.location + '&sortBy=titledesc';
+        //     } else if ($("#dd-sorting option:selected").val() === "price") {
+        //         window.location = window.location + '&sortBy=price';
+        //     } else if ($("#dd-sorting option:selected").val() === "pricedesc") {
+        //         window.location = window.location + '&sortBy=pricedesc';
+        // }
+        // else{
+
+        // }
+        // console.log(this.options[e.target.selectedIndex].text);
+        // alert($("#dd-sorting option:selected").text());
+        // console.log($("#dd-sorting option:selected").val());
+        // });
     }
 }

@@ -59,11 +59,11 @@
                             <!-- Top Cart -->
                             <div class="top-cart-contain">
                                 <div class="mini-cart">
-                                    <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="file:///C:/Users/Nayden/Desktop/NbAmaze.v1.0/HTML/layout-1/red/blog_detail.html#"><span class="hidden-xs">shopping cart (3)</span></a></div>
+                                    <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a id="btn-shoping-card" href="#"><span class="hidden-xs">shopping cart</span></a></div>
                                     <div>
-                                        <div class="top-cart-content arrow_box">
-                                            <div class="block-subtitle">Recently added item(s)</div>
-                                            <ul id="cart-sidebar" class="mini-products-list">
+                                        <div id="shoping-card-content" class="top-cart-content arrow_box show">
+                                            <!--<div class="block-subtitle">Recently added item(s)</div>-->
+                                            <!--<ul id="cart-sidebar" class="mini-products-list">
                                                 <li class="item odd">
                                                     <a href="file:///C:/Users/Nayden/Desktop/NbAmaze.v1.0/HTML/layout-1/red/product_detail.html" title="Skater Dress In Leaf Print" class="product-image"><img src="./products-images/book1.jpg" alt="Product image" width="55"></a>
                                                     <div class="product-details"> <a href="file:///C:/Users/Nayden/Desktop/NbAmaze.v1.0/HTML/layout-1/red/blog_detail.html#" title="Remove This Item" onclick="" class="btn-remove1">Remove This Item</a> <a class="btn-edit" title="Edit item"
@@ -90,7 +90,7 @@
                                             <div class="actions">
                                                 <button class="btn-checkout" type="button"><span>Checkout</span></button>
                                                 <button class="view-cart" type="button"><span>View Cart</span></button>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -131,15 +131,23 @@
                             <a href="#/userbooks" class="level-top"> <span>My Books</span> </a>
                         </li>
 
+                        <span class="hidden-xs hidden-sm pull-right">
+                        <form action="/search/results" autocomplete="off" id="Search" method="get">                    
+                            <input type="text" name="search" id="SearchTerm" placeholder="Search entire store here..." >
+                            <!--<input type="submit" id="SearchButton" value="">-->
+                        </form>
+                                    <!--<div id="SearchSuggestions" style=""></div>-->
+                                </span>
+
 
                     </ul>
-                    <div id="form-search" class="search-bar">
+                    <!--<div id="form-search" class="search-bar">
                         <form id="search_form" action="#" method="get">
                             <input class="search-bar-input" placeholder="Search entire store here..." type="text" value="" name="search" id="search">
                             <input class="search-bar-submit" type="submit" value="">
                             <span class="search-icon"><img src="./images/search-icon.png" alt="search-icon"></span>
                         </form>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </nav>

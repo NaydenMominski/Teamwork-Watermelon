@@ -46,5 +46,7 @@ var sammyApp = Sammy(container, function() {
     this.get('#/userbooks', booksController.userbooks);
 
     this.get('#/bookinfo', booksController.bookinfo);
+    // this.get('#/search/results/:search', booksController.search);
+
 });
 sammyApp.run('#/');

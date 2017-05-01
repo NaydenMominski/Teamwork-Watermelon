@@ -1,0 +1,68 @@
+    
+     <div class="block-subtitle">Recently added item(s)</div>
+     <ul id="cart-sidebar" class="mini-products-list">
+      {{#books}}
+      <li class="item odd">
+          <a href="#" title="Skater Dress In Leaf Print" class="product-image">
+              {{#if url}}
+            <img src="{{url}}" alt="Product image" width="55">
+            {{else}}
+            <img src="../products-images/product1.jpg" alt="Product image" width="55">
+            {{/if}}
+         </a>
+          <div class="product-details"> 
+              <a href="#" title="Remove This Item" onclick="" class="btn-remove1">Remove This Item
+              </a> 
+              <p class="product-name">
+                  <a href="#">{{title}}
+                  </a> 
+              </p>
+              <span class="price">${{price}}</span> 
+        </div>
+      </li>
+   {{/books}}                                     
+    </ul>
+    <div class="top-subtotal">Subtotal: <span class="price">${{totalPrice}}</span></div>
+                <div class="actions">
+                    <button class="btn-checkout" type="button"><span>Checkout</span></button>
+                    <button class="view-cart" type="button"><span>View Cart</span></button>
+                </div>
+
+ {{!--<div class="top-cart-contain">
+    <div class="mini-cart">
+        <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a id="btn-shoping-card" href="#"><span class="hidden-xs">shopping cart (3)</span></a></div>
+        <div>
+            <div id="shoping-card-content" class="top-cart-content arrow_box show">
+                <div class="block-subtitle">Recently added item(s)</div>
+                 <ul id="cart-sidebar" class="mini-products-list">
+                    {{#books}}
+                    <li class="item odd">
+                        <a href="#" title="Skater Dress In Leaf Print" class="product-image">
+                            {{#if url}}
+                            <img src="{{url}}" alt="Product image" width="55">
+                            {{else}}
+                            <img src="../products-images/product1.jpg" alt="Product image" width="55">
+                            {{/if}}
+                        </a>
+                        <div class="product-details"> 
+                            <a href="#" title="Remove This Item" onclick="" class="btn-remove1">Remove This Item
+                            </a> 
+                            <p class="product-name">
+                                <a href="#">{{title}}
+                                </a> 
+                            </p>
+                            <span class="price">${{price}}</span> 
+                        </div>
+                    </li>
+                   {{/books}}                                     
+                    </ul>
+
+                <div class="top-subtotal">Subtotal: <span class="price">$520.00</span></div>
+                <div class="actions">
+                    <button class="btn-checkout" type="button"><span>Checkout</span></button>
+                    <button class="view-cart" type="button"><span>View Cart</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>--}}
