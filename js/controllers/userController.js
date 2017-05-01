@@ -55,15 +55,25 @@ export default {
     userEvent: function() {
         $('#main').on('click', '#btn-register', function(ev) {
             var username = $('#tb-reg-username').val(),
-                password = $('#tb-reg-password').val();
+                password = $('#tb-reg-password').val(),
+                firstname = $('#tb-reg-firstname').val(),
+                lastname = $('#tb-reg-lastname').val(),
+                email = $('#tb-reg-email').val(),
+                repassword = $('#tb-reg-repassword').val();
+
 
             validator.lenght(password, 1, 40)
                 .then(function() {
-                    return data.users.register(username, password);
+                    return data.users.register(username, password, firstname, lastname, email, repassword);
                 })
                 .then(function(data) {
                     $('#tb-reg-username').val('');
                     $('#tb-reg-password').val('');
+                    $('#tb-reg-firstname').val('');
+                    $('#tb-reg-lastname').val('');
+                    $('#tb-reg-email').val('');
+                    $('#tb-reg-repassword').val('');
+
                     toastr.success('User Registered');
                     // context.redirect('#/login');
                     window.location = window.location.origin + '#/login';
@@ -101,6 +111,60 @@ export default {
                     // context.redirect('#/home');
                     window.location = window.location.origin + '#/books';
                 });
+        });
+
+        $('#main').on('click', '#btn-add-shoping-card', function(ev) {
+
+            let userId = sessionStorage.getItem('userId');
+            let bookToAdd = $('#product_addtocart_form input').val();
+
+            Promise.all([data.books.bookinfo(bookToAdd), data.users.getUserData(userId)])
+                .then(function([book, userData]) {
+                    // console.log(userData);
+                    var body = {
+                        shopingcard: userData.shopingcard,
+                        username: userData.username,
+                        firstname: userData.firstname,
+                        lastname: userData.lastname,
+                        email: userData.email,
+                        repassword: userData.repassword
+                    };
+                    body.shopingcard.push(book);
+                    data.users.putUserInfo(userId, body)
+                });
+
+
+
+
+
+
+
+            // let bookdata = data.books.bookinfo(bookToAdd)
+            //     .then(function(datab) {
+            //         console.log(datab);
+            //         return datab;
+            //     });
+            // console.log(bookdata);
+
+
+            // data.users.getUserData(userId)
+            //     .then(function(response) {
+            //         var body = {
+            //             shopingcard: response.shopingcard,
+            //             username: response.username,
+            //             firstname: response.address,
+            //             lastname: response.phone,
+            //             email: response.email,
+            //             repassword: response.repassword
+            //         };
+            //         body.shopingcard.push(bookToAdd);
+            //         console.log(body);
+            //     });
+
+
+
+
+
         });
 
 

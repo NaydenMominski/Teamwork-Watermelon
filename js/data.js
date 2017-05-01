@@ -41,20 +41,26 @@ function getKinveyUserAuthHeaders() {
 
 export default {
     users: {
-        register: function(username, password) {
-            return kinveyRequester.registerUser(username, password)
+        register: function(username, password, firstname, lastname, email, repassword) {
+            return kinveyRequester.registerUser(username, password, firstname, lastname, email, repassword)
         },
         login: function(username, password) {
             return kinveyRequester.loginUser(username, password)
-                .then(saveAuthInSession)
+                .then(saveAuthInSession);
 
         },
 
         logout: function() {
-            return kinveyRequester.logoutUser()
+            return kinveyRequester.logoutUser();
 
         },
+        getUserData: function(userId) {
 
+            return kinveyRequester.getUserInfo(userId);
+        },
+        putUserInfo: function(userId, newdata) {
+            return kinveyRequester.editUserInfo(userId, newdata);
+        },
         // current: function() {
         //     return getSessionKey();
         // }

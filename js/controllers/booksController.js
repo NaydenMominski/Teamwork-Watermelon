@@ -250,34 +250,31 @@ export default {
                 });
 
         });
+
         $('#btn-shoping-card').on('click', function(e) {
-            console.log("tuk sam  nnnn");
-            $('#shoping-card-content').toggleClass("show"); //you can list several class names 
+
+            $('#shoping-card-content').toggleClass("show");
             e.preventDefault();
-            Promise.all([data.books.all(), templates.load('shoping-card')])
+            let userId = sessionStorage.getItem('userId');
+            Promise.all([data.users.getUserData(userId), templates.load('shoping-card')])
                 .then(function([data, template]) {
 
-                    var db_curentuser = $.grep(data, function(v) {
-                        return v._acl.creator === sessionStorage.getItem('userId');
-                    });
-
+                    let db_curentuser = data.shopingcard;
                     let totalPrice = 0;
 
                     db_curentuser.forEach(function(book) {
+                        console.log(book.price);
                         totalPrice += +book.price;
                     });
                     totalPrice = parseFloat(totalPrice.toString()).toFixed(2);
 
-                    console.log(totalPrice);
                     $('#shoping-card-content').html(template({
                         books: db_curentuser,
                         totalPrice: totalPrice
                     }));
 
-
                 });
         });
-
 
         // $('#main').on('change', '#dd-sorting', function(e) {
         //     if ($("#dd-sorting option:selected").val() === "title") {

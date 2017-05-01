@@ -8,6 +8,11 @@ const kinveyAppAuthHeaders = {
     contentType: 'application/json'
 
 };
+const proba = {
+    Authorization: 'Kinvey efa6dc3e-ffaf-4440-9eb2-6892c0586036.Z+SBnciTZHFrg6BXv3j1jPcEowI70VU0N6Hsn+SIza0=',
+    contentType: 'application/json'
+
+};
 
 function getKinveyUserAuthHeaders() {
     return {
@@ -28,18 +33,26 @@ export default {
         });
     },
 
-    registerUser: function(username, password) {
+    registerUser: function(username, password, firstname, lastname, email, repassword) {
         let userData = {
             username: username,
-            password: password
+            password: password,
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            repassword: repassword,
+            shopingcard: []
+
         };
+
         return $.ajax({
             method: "POST",
             url: kinveyBaseUrl + "user/" + kinveyAppId + "/",
             headers: kinveyAppAuthHeaders,
-            data: { username, password },
-            // success: function(data) { resolve(data) },
-            // error: function(err) { reject(err) }
+            data: JSON.stringify(userData),
+            contentType: 'application/json'
+                // success: function(data) { resolve(data) },
+                // error: function(err) { reject(err) }
         });
     },
     logoutUser: function() {
@@ -110,5 +123,26 @@ export default {
 
 
     },
+    getUserInfo: function(userId) {
+        return $.ajax({
+            method: "GET",
+            url: kinveyBaseUrl + "user/" + kinveyAppId + "/" + userId,
+            headers: getKinveyUserAuthHeaders(),
+            contentType: 'application/json'
 
-}
+        });
+    },
+    editUserInfo: function(userId, newdata) {
+        return $.ajax({
+            method: "PUT",
+            url: kinveyBaseUrl + "user/" + kinveyAppId + "/" + userId,
+            headers: getKinveyUserAuthHeaders(),
+            contentType: 'application/json',
+            data: JSON.stringify(newdata)
+
+        });
+    },
+
+
+
+};
