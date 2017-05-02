@@ -21,19 +21,19 @@
                   <div class="clear"></div>
                 </div>
                 <div class="product-shop col-sm-5 col-xs-12">
-                  <div class="product-next-prev"> <a href="#" class="product-next"><span></span></a> <a href="#" class="product-prev"><span></span></a> </div>
+                  {{!--<div class="product-next-prev"> <a href="#" class="product-next"><span></span></a> <a href="#" class="product-prev"><span></span></a> </div>--}}
                   <div class="product-name">
                     <h1>{{title}}</h1>                   
                     <p class="rating-links"><a href="#">By:{{author}}</a> </p>
                     <p class="rating-links"><a href="#">Category:{{genre}}</a> </p>
                   </div>
-                  <div class="ratings">
+                  {{!--<div class="ratings">
                     <div class="rating-box">
                       <div style="width:60%" class="rating"></div>
                     </div>
                     <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
                     
-                  </div>
+                  </div>--}}
                   <div class="short-description">
                     <h2>Quick Overview</h2>
                     <p>{{description}}</p>
@@ -49,22 +49,22 @@
                   <div class="add-to-box">
                     <div class="add-to-cart">
                       <label for="qty">Quantity:</label>
-                      <div class="pull-left">
+                      {{!--<div class="pull-left">
                         <div class="custom pull-left">
                           <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
                           <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
                           <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                         </div>
-                      </div>
+                      </div>--}}
                       <button id="btn-add-shoping-card" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
                     </div>
-                    <div class="email-addto-box">
+                    {{!--<div class="email-addto-box">
                       <ul class="add-to-links">
                         <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
                         <li><span class="separator">|</span> <a class="link-compare" href="compare.html"><span>Add to Compare</span></a></li>
                       </ul>
                       <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
-                    </div>
+                    </div>--}}
                   </div>
                 </div>
             

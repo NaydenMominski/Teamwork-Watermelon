@@ -1,3 +1,4 @@
+'use strict'
 import 'jquery'
 import Handlebars from 'handlebars'
 

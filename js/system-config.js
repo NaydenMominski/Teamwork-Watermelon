@@ -1,3 +1,4 @@
+'use stict'
 System.config({
     transpiler: 'plugin-babel',
     map: {

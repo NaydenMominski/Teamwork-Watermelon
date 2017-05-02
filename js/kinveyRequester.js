@@ -1,3 +1,4 @@
+'use strict'
 import 'jquery'
 
 const kinveyBaseUrl = "https://baas.kinvey.com/";

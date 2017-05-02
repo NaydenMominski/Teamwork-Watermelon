@@ -4,7 +4,7 @@
                     <section class="col-sm-9 col-sm-push-3">
                         <div class="col-main">
                             <div class="category-title">
-                                <h1>Tops &amp; Tees</h1>
+                                <h1>All Books</h1>
                             </div>
                             <div class="category-description std">
                                 <div class="slider-items-products">
@@ -100,7 +100,7 @@
                                                         </figure>
                                                     </a>
                                                 </div>
-                                                <div class="product-meta ">
+                                                {{!--<div class="product-meta ">
                                                     <div class="product-action ">
                                                         <a  class="addcart " href="#"> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
 
@@ -108,7 +108,7 @@
 
                                                         <a class="quickview " href="# "> <i class="icon-zoom ">&nbsp;</i> </a>
                                                     </div>
-                                                </div>
+                                                </div>--}}
                                             </div>
                                             <div class="item-info ">
                                                 <div class="info-inner ">
@@ -119,14 +119,14 @@
                                                             <div class="price-box "> <span class="regular-price "> <span class="price ">${{price}}</span> </span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating ">
+                                                        {{!--<div class="rating ">
                                                             <div class="ratings ">
                                                                 <div class="rating-box ">
                                                                     <div class="rating " style="width:80% "></div>
                                                                 </div>
                                                                 <p class="rating-links "> <a href="# ">1 Review(s)</a> <span class="separator ">|</span> <a href="# ">Add Review</a> </p>
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,24 +142,27 @@
                             <div class="block-title"> Categories </div>
                             <div class="box-content box-category">
                                 <ul id="magicat">
-                                    
-                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/books/Science%20and%20Technology"><span>Science and Technology</span></a>
+                                    {{!--{{#this}}--}}
+                                    {{#category}}
+                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/books/{{encodeCategory}}"><span>{{category}}</span></a>
                                         </span>
 
                                     </li>
-                                    <li class="level0- level0"> <span class="magicat-cat"><a href="#l"><span>Men</span></a>
+                                    {{/category}}
+                                    {{!--{{/this}}--}}
+                                    {{!--<li class="level0- level0"> <span class="magicat-cat"><a href="#/books/C%23"><span>C#</span></a>
                                         </span>
                                     </li>
-                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#"><span>Shoes</span></a>
+                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#/books/Perl"><span>Perl</span></a>
                                         </span>
                                     </li>
                                     <li class="level0- level0  watches open"> <span class="magicat-cat"><a href="#"><span>Watches</span></a>
                                         </span>
 
                                     </li>
-                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#"><span>Furniture</span></a>
+                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#/books/Children's%20Books"><span>Children's Books</span></a>
                                         </span>
-                                    </li>
+                                    </li>--}}
                                 </ul>
                             </div>
                         </div>

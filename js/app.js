@@ -29,6 +29,7 @@ var sammyApp = Sammy(container, function() {
     booksController.bookevent();
     userController.userEvent();
 
+    // $('#main').on('click', '#btn-create-book', booksController.createBook());
     // this.get('#/home/:id', function() {
     //     console.log(this.params.id);
     // });
@@ -39,11 +40,14 @@ var sammyApp = Sammy(container, function() {
 
     this.get('#/books', booksController.all);
     this.get('#/book/:bookID', booksController.showBookByID);
-    this.get('#/userbook/:bookID', booksController.showUserBookByID);
     this.get('#/books/:query', booksController.all);
-    this.get('#/userbooks/:size/:page', booksController.userbooks);
+
+    // this.get('#/userbooks/:size/:page', booksController.userbooks);
     this.get('#/newbook', booksController.addbook);
+
     this.get('#/userbooks', booksController.userbooks);
+    this.get('#/userbook/:bookID', booksController.showUserBookByID);
+    this.get('#/userbooks/:query', booksController.userbooks);
 
     this.get('#/bookinfo', booksController.bookinfo);
     // this.get('#/search/results/:search', booksController.search);

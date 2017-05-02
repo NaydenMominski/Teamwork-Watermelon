@@ -1,3 +1,4 @@
+'use strict'
 import 'jquery'
 
 import data from 'js/data.js'

@@ -1,3 +1,4 @@
+'use strict'
 // data.js
 import 'jquery'
 import kinveyRequester from 'js/kinveyRequester.js'

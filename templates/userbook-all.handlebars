@@ -4,7 +4,7 @@
                     <section class="col-sm-9 col-sm-push-3">
                         <div class="col-main">
                             <div class="category-title">
-                                <h1>Tops &amp; Tees</h1>
+                                <h1>My Store</h1>
                             </div>
                             <div class="category-description std">
                                 <div class="slider-items-products">
@@ -16,9 +16,9 @@
                             <div class="category-products">
                                 <div class="toolbar">
                                     <div class="sorter">
-                                        <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>
+                                        {{!--<div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>--}}
                                     </div>
-                                    <div id="sort-by">
+                                    {{!--<div id="sort-by">
                                         <label class="left">Sort By: </label>
                                         <ul>
                                             <li><a href="#">Position<span class="right-arrow"></span></a>
@@ -29,16 +29,26 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>
+                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up">
+                                            </span>
+                                            </a> 
+                                    </div>--}}
                                     <div class="pager">
                                         <div id="limiter">
                                             <label>View: </label>
                                             <ul>
                                                 <li><a href="#">Size <span class="right-arrow"></span></a>
-                                                    <ul>
+                                                          <ul>{{#queries}}
+                                                         {{#if query}}
+                                                        <li><a href="#/userbooks/{{query}}?page=0&size=6">6</a></li>
+                                                        <li><a href="#/userbooks/{{query}}?page=0&size=9">9</a></li>
+                                                        <li><a href="#/userbooks/{{query}}?page=0&size=12">12</a></li>
+                                                         {{else}}
                                                         <li><a href="#/userbooks?page=0&size=6">6</a></li>
                                                         <li><a href="#/userbooks?page=0&size=9">9</a></li>
                                                         <li><a href="#/userbooks?page=0&size=12">12</a></li>
+                                                        {{/if}}
+                                                        {{/queries}}
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -81,7 +91,7 @@
                                                         </figure>
                                                     </a>
                                                 </div>
-                                                <div class="product-meta ">
+                                                {{!--<div class="product-meta ">
                                                     <div class="product-action ">
                                                         <a  class="addcart " href="# "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
 
@@ -89,7 +99,7 @@
 
                                                         <a class="quickview " href="# "> <i class="icon-zoom ">&nbsp;</i> </a>
                                                     </div>
-                                                </div>
+                                                </div>--}}
                                             </div>
                                             <div class="item-info ">
                                                 <div class="info-inner ">
@@ -100,14 +110,14 @@
                                                             <div class="price-box "> <span class="regular-price "> <span class="price ">${{price}}</span> </span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating ">
+                                                        {{!--<div class="rating ">
                                                             <div class="ratings ">
                                                                 <div class="rating-box ">
                                                                     <div class="rating " style="width:80% "></div>
                                                                 </div>
                                                                 <p class="rating-links "> <a href="# ">1 Review(s)</a> <span class="separator ">|</span> <a href="# ">Add Review</a> </p>
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,11 +133,13 @@
                             <div class="block-title"> Categories </div>
                             <div class="box-content box-category">
                                 <ul id="magicat">
-                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#"><span>Women</span></a>
+                                     {{#category}}
+                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/userbooks/{{encodeCategory}}"><span>{{category}}</span></a>
                                         </span>
 
                                     </li>
-                                    <li class="level0- level0"> <span class="magicat-cat"><a href="#l"><span>Men</span></a>
+                                    {{/category}}
+                                    {{!--<li class="level0- level0"> <span class="magicat-cat"><a href="#l"><span>Men</span></a>
                                         </span>
                                     </li>
                                     <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#"><span>Shoes</span></a>
@@ -139,7 +151,7 @@
                                     </li>
                                     <li class="level0- level0 last"> <span class="magicat-cat"><a href="#"><span>Furniture</span></a>
                                         </span>
-                                    </li>
+                                    </li>--}}
                                 </ul>
                             </div>
                         </div>
