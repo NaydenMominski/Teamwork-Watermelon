@@ -24,23 +24,23 @@ export default {
     },
 
     logout: function() {
-        $('#btn-navlogout').click(function() {
-            data.users.logout()
-                .then(function() {
-                    toastr.success(sessionStorage.getItem('username') + ' Log Out');
-                    sessionStorage.clear();
 
-                    $('#btn-navlogout').hide();
-                    $('#btn-navlogin').show();
-                    $('.cart_cur_block').hide();
-                    $('#welcome-msg').hide().text('');
-                    // context.redirect('#/home');
-                    window.location = window.location.origin + '#/home';
-                })
-                .catch(function() {
-                    toastr.error('No User to Log Out ');
-                });
-        });
+        data.users.logout()
+            .then(function() {
+                toastr.success(sessionStorage.getItem('username') + ' Log Out');
+                sessionStorage.clear();
+
+                $('#btn-navlogout').hide();
+                $('#btn-navlogin').show();
+                $('.cart_cur_block').hide();
+                $('#welcome-msg').hide().text('');
+                // context.redirect('#/home');
+                window.location = window.location.origin + '#/home';
+            })
+            .catch(function() {
+                toastr.error('No User to Log Out ');
+            });
+
     },
 
     isUserLoggedIn: function() {
@@ -117,33 +117,14 @@ export default {
                 });
         });
 
-        $('#main').on('click', '#btn-add-shoping-card', function(ev) {
 
-            let userId = sessionStorage.getItem('userId');
-            let bookToAdd = $('#product_addtocart_form input').val();
 
-            Promise.all([data.books.bookinfo(bookToAdd), data.users.getUserData(userId)])
-                .then(function([book, userData]) {
-                    // console.log(userData);
-                    var body = {
-                        shopingcard: userData.shopingcard,
-                        username: userData.username,
-                        firstname: userData.firstname,
-                        lastname: userData.lastname,
-                        email: userData.email,
-
-                    };
-                    body.shopingcard.push(book);
-                    data.users.putUserInfo(userId, body);
-                    toastr.success('The book is added to the Shoping Cart');
-                });
+        $('body').on('click', function(ev) {
+            // ev.preventDefault();
+            var target = ev.target;
+            console.log(target);
+            // console.log($target.attr('class') === 'btn-remove1');
         });
-
-        // $('#shoping-card-content').on('click', function(ev) {
-        //     ev.preventDefault();
-        //     var $target = ev.target
-        //     console.log($target.attr('class') === 'btn-remove1');
-        // });
 
 
         // $('#main').on('click', '#btn-add-shoping-card', function(ev) {

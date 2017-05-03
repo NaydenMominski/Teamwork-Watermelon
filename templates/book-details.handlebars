@@ -48,7 +48,7 @@
                   </div>
                   <div class="add-to-box">
                     <div class="add-to-cart">
-                      <label for="qty">Quantity:</label>
+                      {{!--<label for="qty">Quantity:</label>--}}
                       {{!--<div class="pull-left">
                         <div class="custom pull-left">
                           <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
@@ -56,8 +56,12 @@
                           <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                         </div>
                       </div>--}}
+                      
                       <button id="btn-add-shoping-card" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                     
+                     <a class="btn  btn-social btn-facebook"><span class="fa fa-facebook"></span> Share</a> {{!--<button id="btn-share-facebook" class="fb-xfbml-parse-ignore" type="button"><span><i class="fa fa-facebook"></i> Share on Facebook</i></span></button>--}}
                     </div>
+                    
                     {{!--<div class="email-addto-box">
                       <ul class="add-to-links">
                         <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
@@ -65,6 +69,11 @@
                       </ul>
                       <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
                     </div>--}}
+                    {{!--<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                      <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Споделяне
+                      </a>--}}
+                    
+                    </div>
                   </div>
                 </div>
             

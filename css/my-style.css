@@ -24,3 +24,11 @@
 div.top-cart-content.arrow_box.show {
     display: block;
 }
+
+#btn-add-shoping-card {
+    margin-right: 10px;
+}
+
+.btn-facebook {
+    margin-top: 4px;
+}

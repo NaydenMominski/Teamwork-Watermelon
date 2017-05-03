@@ -217,8 +217,7 @@ export default {
     //         let filteredBooks = [];
     //         for (let book of tempBooks) {
     //             if (book.title.toLowerCase().indexOf(searchPattern) > 0 ||
-    //                 book.author.toLowerCase().indexOf(searchPattern) > 0 ||
-    //                 book.category.toLowerCase().indexOf(searchPattern) > 0) {
+    //                 book.author.toLowerCase().indexOf(searchPattern) > 0  {
     //                 filteredBooks.push(book);
     //             }
     //         }
@@ -274,8 +273,7 @@ export default {
                     window.location = window.location.origin + '#/userbooks';
                 }, function(error) {
                     toastr.error('Unsuccessful!');
-                    // context.redirect('#/home');
-                    // window.location = window.location.origin + '#/userbooks';
+
                 });
         });
         $('#main').on('click', '#btn-editbook', function(ev) {
@@ -333,6 +331,28 @@ export default {
                         totalPrice: totalPrice
                     }));
 
+                });
+        });
+
+        $('#main').on('click', '#btn-add-shoping-card', function(ev) {
+
+            let userId = sessionStorage.getItem('userId');
+            let bookToAdd = $('#product_addtocart_form input').val();
+
+            Promise.all([data.books.bookinfo(bookToAdd), data.users.getUserData(userId)])
+                .then(function([book, userData]) {
+                    // console.log(userData);
+                    var body = {
+                        shopingcard: userData.shopingcard,
+                        username: userData.username,
+                        firstname: userData.firstname,
+                        lastname: userData.lastname,
+                        email: userData.email,
+
+                    };
+                    body.shopingcard.push(book);
+                    data.users.putUserInfo(userId, body);
+                    toastr.success('The book is added to the Shoping Cart');
                 });
         });
         //  $('#btn-shoping-card').on('click', function(e) {
