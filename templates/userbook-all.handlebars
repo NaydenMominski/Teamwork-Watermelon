@@ -60,9 +60,13 @@
                                                 <li class="active"><a href="#">1</a></li>
                                                 <li><a href="#">2</a></li>
                                                 <li><a href="#">3</a></li>
-                                                <li><a href="#">&raquo;</a></li>--}}
+                                                <li><a href="#">&raquo;</a></li>--}}                                           
                                                  {{#pages}}
-                                                <li><a href="#/userbooks?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                {{#if query}}
+                                                <li><a href="#/userbooks/{{query}}?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                {{else}}
+                                                 <li><a href="#/userbooks?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                 {{/if}}
                                                 {{/pages}}
                                             </ul>
                                         </div>

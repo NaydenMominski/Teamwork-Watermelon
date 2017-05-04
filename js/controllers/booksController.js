@@ -21,8 +21,8 @@ export default {
         Promise.all([data.books.all(), templates.load('book-all')])
             .then(function([data, template]) {
 
-
                 let allData = data;
+                // -----query Categories
 
                 if (query) {
                     query = decodeURIComponent(query.trim());
@@ -46,6 +46,9 @@ export default {
                         encodeCategory: encodeCategory[i]
                     });
                 }
+                // ----Pagination-----
+
+
                 var pagesLen = ((data.length / size) | 0) + 1,
                     pages = [],
                     queries = [];
@@ -54,9 +57,11 @@ export default {
                     pages.push({
                         size: size,
                         page: i,
-                        displayPage: i + 1
+                        displayPage: i + 1,
+                        query: query
                     });
                 }
+
                 queries.push({
                     query: query
                 });
@@ -145,7 +150,8 @@ export default {
                     pages.push({
                         size: size,
                         page: i,
-                        displayPage: i + 1
+                        displayPage: i + 1,
+                        query: query
                     });
                 }
                 let allDataUser = db_curentuser;
@@ -294,16 +300,14 @@ export default {
                 url = $('#newbook-url').val(),
                 description = $('#newbook-description').val();
 
-            validator.lenght(title, 1, 60)
-                .then(function() {
-                    return data.books.bookForEdit(bookID, title, author, genre, price, url, description);
-                })
+
+            data.books.bookForEdit(bookID, title, author, genre, price, url, description)
                 .then(function(data) {
                     window.location = window.location.origin + '#/userbooks';
                     toastr.success('Edit book Successful');
                 })
                 .catch(function(err) {
-                    toastr.error('Error');
+                    toastr.error('Error: The book has not been edited');
                 });
 
         });

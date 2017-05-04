@@ -123,7 +123,23 @@ export default {
 
         },
         bookForEdit: function(bookId, title, author, genre, price, url, description) {
+            let errTitle = validator.validateString(title, 1, 60, "Title");
+            if (errTitle) {
+                return Promise.reject(toastr.error(errTitle.message));
+            }
 
+            let errPrice = validator.validateNumber(price, "Price");
+            if (errPrice) {
+                return Promise.reject(toastr.error(errPrice.message));
+            }
+            price = Number(price).toFixed(2);
+
+            if (url != '') {
+                let error = validator.validateUrl(url);
+                if (error) {
+                    return Promise.reject(toastr.error.message);
+                }
+            }
             return kinveyRequester.editBook(bookId, title, author, genre, price, url, description);
         },
         bookForDelete: function(bookId) {
