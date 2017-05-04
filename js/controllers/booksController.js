@@ -251,16 +251,14 @@ export default {
                 url = $('#newbook-url').val(),
                 description = $('#newbook-description').val();
 
-            validator.lenght(title, 1, 60)
-                .then(function() {
-                    return data.books.createBook(title, author, genre, price, url, description);
-                })
+
+            data.books.createBook(title, author, genre, price, url, description)
                 .then(function(data) {
                     window.location = window.location.origin + '#/books';
                     toastr.success('Create Book');
                 })
                 .catch(function(err) {
-                    toastr.error('Error');
+                    toastr.error('Error: The book is not created');
                 });
 
         });
@@ -354,6 +352,19 @@ export default {
                     data.users.putUserInfo(userId, body);
                     toastr.success('The book is added to the Shoping Cart');
                 });
+        });
+
+        $('#main').on('click', '#shareBtn', function(ev) {
+            console.log('facebook');
+            let bookToAdd = $('#product_addtocart_form input').val();
+            FB.ui({
+                method: 'feed',
+                name: 'DebugmodeEventPlans',
+                link: 'http://localhost:1461/ShareonFB.html',
+                caption: 'hey how is my Application ? tell me dude',
+                description: 'hey how is my Application ?',
+                message: ''
+            });
         });
         //  $('#btn-shoping-card').on('click', function(e) {
 

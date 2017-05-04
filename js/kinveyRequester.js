@@ -34,14 +34,13 @@ export default {
         });
     },
 
-    registerUser: function(username, password, firstname, lastname, email, repassword) {
+    registerUser: function(username, password, firstname, lastname, email) {
         let userData = {
             username: username,
             password: password,
             firstname: firstname,
             lastname: lastname,
             email: email,
-            repassword: repassword,
             shopingcard: []
 
         };

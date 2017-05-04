@@ -2,7 +2,7 @@
 // data.js
 import 'jquery'
 import kinveyRequester from 'js/kinveyRequester.js'
-import notifier from 'js/notifier.js'
+import validator from 'js/validator.js'
 
 // import requester from 'js/requester.js'
 // import cookie from 'js/cookie.js'
@@ -43,8 +43,32 @@ function getKinveyUserAuthHeaders() {
 export default {
     users: {
         register: function(username, password, firstname, lastname, email, repassword) {
-            return kinveyRequester.registerUser(username, password, firstname, lastname, email, repassword)
+            let errUserName = validator.lenght(username, 3, 40, "User Name")
+            if (errUserName) {
+                return Promise.reject(toastr.error(errUserName.message));
+            }
+
+            if (email != '') {
+                let errEmail = validator.validateEmail(email);
+                if (errEmail) {
+                    return Promise.reject(toastr.error(errEmail.message));
+                }
+            }
+
+            if (password != repassword) {
+                return Promise.reject(toastr.error('Invalid Password'));
+            }
+
+            let errPass = validator.lenght(password, 3, 40, "Password")
+            if (errPass) {
+
+                return Promise.reject(toastr.error(errPass.message));
+            }
+
+            return kinveyRequester.registerUser(username, password, firstname, lastname, email)
         },
+
+
         login: function(username, password) {
             return kinveyRequester.loginUser(username, password)
                 .then(saveAuthInSession);
@@ -77,7 +101,26 @@ export default {
         },
 
         createBook: function(title, author, genre, price, url, description) {
-            return kinveyRequester.createBook(title, author, genre, price, url, description)
+            let errTitle = validator.validateString(title, 1, 60, "Title");
+            if (errTitle) {
+                return Promise.reject(toastr.error(errTitle.message));
+            }
+
+            let errPrice = validator.validateNumber(price, "Price");
+            if (errPrice) {
+                return Promise.reject(toastr.error(errPrice.message));
+            }
+            price = Number(price).toFixed(2);
+
+            if (url != '') {
+                let error = validator.validateUrl(url);
+                if (error) {
+                    return Promise.reject(toastr.error.message);
+                }
+            }
+            return kinveyRequester.createBook(title, author, genre, price, url, description);
+
+
         },
         bookForEdit: function(bookId, title, author, genre, price, url, description) {
 

@@ -62,29 +62,28 @@ export default {
                 email = $('#tb-reg-email').val(),
                 repassword = $('#tb-reg-repassword').val();
 
-            if (password === repassword) {
-                validator.lenght(password, 1, 40)
-                    .then(function() {
-                        return data.users.register(username, password, firstname, lastname, email);
-                    })
-                    .then(function(data) {
-                        $('#tb-reg-username').val('');
-                        $('#tb-reg-password').val('');
-                        $('#tb-reg-firstname').val('');
-                        $('#tb-reg-lastname').val('');
-                        $('#tb-reg-email').val('');
-                        $('#tb-reg-repassword').val('');
+            // if (password === repassword) {
+            // validator.lenght(password, 1, 40)
+            //     .then(function() {
+            data.users.register(username, password, firstname, lastname, email, repassword)
+                .then(function(data) {
+                    $('#tb-reg-username').val('');
+                    $('#tb-reg-password').val('');
+                    $('#tb-reg-firstname').val('');
+                    $('#tb-reg-lastname').val('');
+                    $('#tb-reg-email').val('');
+                    $('#tb-reg-repassword').val('');
 
-                        toastr.success('User Registered');
-                        // context.redirect('#/login');
-                        window.location = window.location.origin + '#/login';
-                    })
-                    .catch(function(err) {
-                        toastr.error('Error');
-                    });
-            } else {
-                toastr.error('Invalid Password');
-            }
+                    toastr.success('Registered User');
+                    // context.redirect('#/login');
+                    window.location = window.location.origin + '#/login';
+                })
+                .catch(function(err) {
+                    toastr.error('Error:Unregistered user');
+                });
+            // } else {
+            //     toastr.error('Invalid Password');
+            // }
         });
 
         $('#main').on('click', '#btn-login', function(ev) {
@@ -92,10 +91,7 @@ export default {
             var username = $('#formLogin input[name=login-username]').val(),
                 password = $('#formLogin input[name=login-passwd]').val();
 
-            validator.lenght(password, 1, 40)
-                .then(function() {
-                    return data.users.login(username, password)
-                })
+            data.users.login(username, password)
                 .then(function(response) {
                     $('#formLogin input[name=login-username]').val('');
                     $('#formLogin input[name=login-passwd]').val('');
@@ -119,12 +115,12 @@ export default {
 
 
 
-        $('body').on('click', function(ev) {
-            // ev.preventDefault();
-            var target = ev.target;
-            console.log(target);
-            // console.log($target.attr('class') === 'btn-remove1');
-        });
+        // $('body').on('click', function(ev) {
+        //     // ev.preventDefault();
+        //     var target = ev.target;
+        //     console.log(target);
+        //     // console.log($target.attr('class') === 'btn-remove1');
+        // });
 
 
         // $('#main').on('click', '#btn-add-shoping-card', function(ev) {
