@@ -4,7 +4,7 @@ import 'jquery'
 import data from 'js/data.js'
 import templates from 'js/templates.js'
 import validator from 'js/validator.js'
-// import utils from 'js/utils.js'
+import utils from 'js/utils.js'
 
 export default {
 
@@ -13,10 +13,8 @@ export default {
         //     page = +sammy.params['page'] || 0;
         let size = +this.params.size || 6,
             page = +this.params.page || 0,
-            query = this.params.query;
-        //     sortBy = this.params.sortBy;
-
-        // console.log(sortBy);
+            query = this.params.query,
+            sortBy = this.params.sortBy;
 
         Promise.all([data.books.all(), templates.load('book-all')])
             .then(function([data, template]) {
@@ -47,8 +45,6 @@ export default {
                     });
                 }
                 // ----Pagination-----
-
-
                 var pagesLen = ((data.length / size) | 0) + 1,
                     pages = [],
                     queries = [];
@@ -58,32 +54,20 @@ export default {
                         size: size,
                         page: i,
                         displayPage: i + 1,
-                        query: query
+                        query: query,
+                        sortBy: sortBy
                     });
                 }
 
                 queries.push({
-                    query: query
+                    query: query,
+                    sortBy: sortBy
                 });
-
-                // console.log(queries);
-                // console.log(category);
                 // -----sorting-----
+                if (sortBy) {
+                    utils.sorting(data, sortBy);
+                }
 
-                // if (sortBy) {
-                //     if (sortBy === "title") {
-                //         data.sort((a, b) => { return a.title.localeCompare(b.title); });
-                //     } else if (sortBy === "titledesc") {
-                //         data.sort((a, b) => { return b.title.localeCompare(a.title); });
-                //     } else if (sortBy === "price") {
-                //         data.sort((a, b) => { return a.price.localeCompare(b.price); });
-                //     } else if (sortBy === "pricedesc") {
-                //         data.sort((a, b) => { return b.price.localeCompare(a.price); });
-                //     }
-
-                // }
-
-                // log($('#dd-sorting option:selected').text());
                 data = data.slice(page * size, (page + 1) * size);
 
                 $('#main').html(template({
@@ -94,13 +78,6 @@ export default {
 
                 }));
             });
-        // $('#main').on('click', '#btn-filter', function(ev) {
-        //     var size = $('#dd-sorting option:selected').text();
-        //     console.log(size);
-        //     ,
-        //         page = 0;
-        //     sammy.redirect('#/posts/' + size + '/' + page);
-        // });
     },
     showBookByID: function() {
         let bookId = this.params['bookID'];
@@ -109,7 +86,6 @@ export default {
                 $('#main').html(template(data));
 
             });
-        // window.location = window.location.origin + '#/book/' + bookId;
     },
 
     showUserBookByID: function() {
@@ -120,7 +96,6 @@ export default {
                 $('#main').html(template(data));
 
             });
-        // window.location = window.location.origin + '#/userbook/' + bookId;
     },
 
     addbook: function(context) {
@@ -134,7 +109,8 @@ export default {
     userbooks: function() {
         let size = +this.params.size || 6,
             page = +this.params.page || 0,
-            query = this.params.query;
+            query = this.params.query,
+            sortBy = this.params.sortBy;
 
         Promise.all([data.books.all(), templates.load('userbook-all')])
             .then(function([data, template]) {
@@ -143,19 +119,7 @@ export default {
                     return v._acl.creator === sessionStorage.getItem('userId');
                 });
 
-                var pagesLen = ((db_curentuser.length / size) | 0) + 1,
-                    pages = [];
-
-                for (var i = 0; i < pagesLen; i += 1) {
-                    pages.push({
-                        size: size,
-                        page: i,
-                        displayPage: i + 1,
-                        query: query
-                    });
-                }
                 let allDataUser = db_curentuser;
-
 
                 if (query) {
                     query = decodeURIComponent(query.trim());
@@ -187,15 +151,21 @@ export default {
                     pages.push({
                         size: size,
                         page: i,
-                        displayPage: i + 1
+                        displayPage: i + 1,
+                        query: query,
+                        sortBy: sortBy
                     });
                 }
                 queries.push({
-                    query: query
+                    query: query,
+                    sortBy: sortBy
                 });
 
-                db_curentuser = db_curentuser.slice(page * size, (page + 1) * size);
+                if (sortBy) {
+                    utils.sorting(db_curentuser, sortBy);
+                }
 
+                db_curentuser = db_curentuser.slice(page * size, (page + 1) * size);
 
                 $('#main').html(template({
                     books: db_curentuser,
@@ -207,42 +177,43 @@ export default {
             });
     },
 
-    // search: function(params) {
+    // search: function() {
+    //     console.log("object");
+    //     let search = this.params.search;
+    //     console.log(search);
+    //     data.books.all()
+    //         .then((booksObj) => {
+    //             let tempBooks = [],
+    //                 searchPattern = decodeURI(params.productName).toLowerCase();
 
-    //     console.log("search");
-    // data.books.all()
-    //     .then((booksObj) => {
-    //         let tempBooks = [],
-    //             searchPattern = decodeURI(params.productName).toLowerCase();
-
-    //         for (let bookID in booksObj) {
-    //             tempBooks.push(booksObj[bookID])
-    //             tempBooks[tempBooks.length - 1]._id = bookID;
-    //         }
-
-    //         let filteredBooks = [];
-    //         for (let book of tempBooks) {
-    //             if (book.title.toLowerCase().indexOf(searchPattern) > 0 ||
-    //                 book.author.toLowerCase().indexOf(searchPattern) > 0  {
-    //                 filteredBooks.push(book);
+    //             for (let bookID in booksObj) {
+    //                 tempBooks.push(booksObj[bookID])
+    //                 tempBooks[tempBooks.length - 1]._id = bookID;
     //             }
-    //         }
 
-    //         console.log(tempBooks);
-    //         console.log(filteredBooks);
+    //             let filteredBooks = [];
+    //             for (let book of tempBooks) {
+    //                 if (book.title.toLowerCase().indexOf(searchPattern) > 0 ||
+    //                     book.author.toLowerCase().indexOf(searchPattern) > 0) {
+    //                     filteredBooks.push(book);
+    //                 }
+    //             }
 
-    //         let body = {
-    //             searchValue: decodeURI(params.productName)
-    //         };
-    //         if (filteredBooks.length > 0) {
-    //             body.books = filteredBooks;
-    //         }
+    //             console.log(tempBooks);
+    //             console.log(filteredBooks);
 
-    //         return templates.compile('search', body);
-    //     })
-    //     .then((html) => {
-    //         _changePageHtml(html);
-    //     });
+    //             let body = {
+    //                 searchValue: decodeURI(params.productName)
+    //             };
+    //             if (filteredBooks.length > 0) {
+    //                 body.books = filteredBooks;
+    //             }
+
+    //             return templates.load('search');
+    //         }).then(function(templateHtml) {
+    //             $('#main').html(templateHtml(body));
+    //         });
+
     // },
 
 

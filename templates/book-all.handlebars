@@ -18,18 +18,31 @@
                                     {{!--<div class="sorter">
                                         <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>
                                     </div>--}}
-                                    {{!--<div id="sort-by">
+                                    <div id="sort-by">
                                         <label class="left">Sort By: </label>
                                         <ul>
-                                            <li><a href="#">Title<span class="right-arrow"></span></a>
-                                                <ul>
-                                                    <li><a href="#">Title</a></li>
-                                                    <li><a href="#">Price</a></li>
-                                                  
+                                            <li><a href="#">Sorting<span class="right-arrow"></span></a>
+                                                <ul>{{#queries}}
+                                                      {{#if query}}
+                                                    <li><a href="#/books/{{query}}?sortBy=title">Title a-z </a></li>
+                                                    <li><a href="#/books/{{query}}?sortBy=titledesc">Title z-a</a></li>
+                                                    <li><a href="#/books/{{query}}?sortBy=price">Lowest price</a></li>
+                                                    <li><a href="#/books/{{query}}?&sortBy=pricedesc">Highest price</a></li>
+                                                       {{else}} 
+                                                    <li><a href="#/books?sortBy=title">Title a-z </a></li>
+                                                    <li><a href="#/books?sortBy=titledesc">Title z-a</a></li>
+                                                    <li><a href="#/books?sortBy=price">Lowest price</a></li>
+                                                    <li><a href="#/books?&sortBy=pricedesc">Highest price</a></li> 
+                                                      {{/if}}
+                                                    {{/queries}}                                           
                                                 </ul>
                                             </li>
                                         </ul>
-                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>--}}
+                                        {{!--<a class="button-asc left" href="#" title="Set Descending Direction">
+                                            <span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up">
+                                            </span>
+                                        </a> --}}
+                                        </div>
                                     {{!--<span>Sorting:</span>
                                     <select id="dd-sorting">
                                     <option value="choice" >Choice</option>
@@ -37,8 +50,8 @@
                                     <option value="titledesc" >By Title-Descending</option>
                                      <option value="price">By Price-Ascending</option>
                                     <option value="pricedesc">By Price-Descending</option>
-                                   --}}
-                                    {{!--</select>--}}
+                                   
+                                    </select>--}}
                                     <div class="pager">
                                         <div id="limiter">
                                             <label>View: </label>
@@ -46,13 +59,13 @@
                                                 <li><a href="#">Size <span class="right-arrow"></span></a>
                                                      <ul>{{#queries}}
                                                          {{#if query}}
-                                                        <li><a href="#/books/{{query}}?page=0&size=6">6</a></li>
-                                                        <li><a href="#/books/{{query}}?page=0&size=9">9</a></li>
-                                                        <li><a href="#/books/{{query}}?page=0&size=12">12</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=6&sortBy={{sortBy}}">6</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=9&sortBy={{sortBy}}">9</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=12&sortBy={{sortBy}}">12</a></li>
                                                          {{else}}
-                                                        <li><a href="#/books?page=0&size=6">6</a></li>
-                                                        <li><a href="#/books?page=0&size=9">9</a></li>
-                                                        <li><a href="#/books?page=0&size=12">12</a></li>
+                                                        <li><a href="#/books?page=0&size=6&sortBy={{sortBy}}">6</a></li>
+                                                        <li><a href="#/books?page=0&size=9&sortBy={{sortBy}}">9</a></li>
+                                                        <li><a href="#/books?page=0&size=12&sortBy={{sortBy}}">12</a></li>
                                                         {{/if}}
                                                         {{/queries}}
                                                     </ul>
@@ -66,9 +79,9 @@
                                                 <li class="active"><a href="#">1</a></li>--}}
                                                 {{#pages}}
                                                 {{#if query}}
-                                                <li><a href="#/books/{{query}}?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                <li><a href="#/books/{{query}}?page={{page}}&size={{size}}&sortBy={{sortBy}}">{{displayPage}}</a></li>
                                                 {{else}}
-                                                 <li><a href="#/books?page={{page}}&size={{size}}">{{displayPage}}</a></li>
+                                                 <li><a href="#/books?page={{page}}&size={{size}}&sortBy={{sortBy}}">{{displayPage}}</a></li>
                                                  {{/if}}
                                                 {{/pages}}
                                                 {{!--<li><a href="#">3</a></li>

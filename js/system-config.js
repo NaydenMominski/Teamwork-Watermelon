@@ -17,7 +17,7 @@ System.config({
         'booksController': 'js/controllers/booksController.js',
         'templates': './js/templates.js',
         'validator': './js/validator.js',
-        // 'utils': './js/utils.js',
+        'utils': './js/utils.js',
 
         // templates
         // 'homeTemplate': 'templates/home.handlebars',

@@ -4,7 +4,7 @@
                     <section class="col-sm-9 col-sm-push-3">
                         <div class="col-main">
                             <div class="category-title">
-                                <h1>My Store</h1>
+                                <h1>All Books</h1>
                             </div>
                             <div class="category-description std">
                                 <div class="slider-items-products">
@@ -15,46 +15,44 @@
                             </div>
                             <div class="category-products">
                                 <div class="toolbar">
-                                    <div class="sorter">
-                                        {{!--<div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>--}}
-                                    </div>
-                                    <div id="sort-by">
-                                    <label class="left">Sort By: </label>
-                                    <ul>
-                                        <li><a href="#">Sorting<span class="right-arrow"></span></a>
-                                            <ul>                                           
-                                                 {{#queries}}
-                                                  {{#if query}}
-                                                <li><a href="#/userbooks/{{query}}?sortBy=title">Title a-z </a></li>
-                                                <li><a href="#/userbooks/{{query}}?sortBy=titledesc">Title z-a</a></li>
-                                                <li><a href="#/userbooks/{{query}}?sortBy=price">Lowest price</a></li>
-                                                <li><a href="#/userbooks/{{query}}?&sortBy=pricedesc">Highest price</a></li>
-                                                    {{else}} 
-                                                <li><a href="#/userbooks?sortBy=title">Title a-z </a></li>
-                                                <li><a href="#/userbooks?sortBy=titledesc">Title z-a</a></li>
-                                                <li><a href="#/userbooks?sortBy=price">Lowest price</a></li>
-                                                <li><a href="#/userbooks?&sortBy=pricedesc">Highest price</a></li>
-                                                  {{/if}}
-                                                  {{/queries}}                                                    
-                                            </ul>
-                                        </li>
-                                    </ul>
-                              
-                                    </div>
+                                    {{!--<div class="sorter">
+                                        <div class="view-mode"> <span title="Grid" class="button button-active button-grid">Grid</span><a href="#" title="List" class="button button-list">List</a> </div>
+                                    </div>--}}
+                                    {{!--<div id="sort-by">
+                                        <label class="left">Sort By: </label>
+                                        <ul>
+                                            <li><a href="#">Title<span class="right-arrow"></span></a>
+                                                <ul>
+                                                    <li><a href="#">Title</a></li>
+                                                    <li><a href="#">Price</a></li>
+                                                  
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <a class="button-asc left" href="#" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>--}}
+                                    {{!--<span>Sorting:</span>
+                                    <select id="dd-sorting">
+                                    <option value="choice" >Choice</option>
+                                    <option value="title" >By Title-Ascending</option>
+                                    <option value="titledesc" >By Title-Descending</option>
+                                     <option value="price">By Price-Ascending</option>
+                                    <option value="pricedesc">By Price-Descending</option>
+                                   --}}
+                                    {{!--</select>--}}
                                     <div class="pager">
                                         <div id="limiter">
                                             <label>View: </label>
-                                            <ul>
+                                            <ul> 
                                                 <li><a href="#">Size <span class="right-arrow"></span></a>
-                                                          <ul>{{#queries}}
+                                                     <ul>{{#queries}}
                                                          {{#if query}}
-                                                        <li><a href="#/userbooks/{{query}}?page=0&size=6&sortBy={{sortBy}}">6</a></li>
-                                                        <li><a href="#/userbooks/{{query}}?page=0&size=9&sortBy={{sortBy}}">9</a></li>
-                                                        <li><a href="#/userbooks/{{query}}?page=0&size=12&sortBy={{sortBy}}">12</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=6">6</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=9">9</a></li>
+                                                        <li><a href="#/books/{{query}}?page=0&size=12">12</a></li>
                                                          {{else}}
-                                                        <li><a href="#/userbooks?page=0&size=6&sortBy={{sortBy}}">6</a></li>
-                                                        <li><a href="#/userbooks?page=0&size=9&sortBy={{sortBy}}">9</a></li>
-                                                        <li><a href="#/userbooks?page=0&size=12&sortBy={{sortBy}}">12</a></li>
+                                                        <li><a href="#/books?page=0&size=6">6</a></li>
+                                                        <li><a href="#/books?page=0&size=9">9</a></li>
+                                                        <li><a href="#/books?page=0&size=12">12</a></li>
                                                         {{/if}}
                                                         {{/queries}}
                                                     </ul>
@@ -64,44 +62,47 @@
                                         <div class="pages">
                                             <label>Page:</label>
                                             <ul class="pagination">
-                                                                              
-                                                 {{#pages}}
+                                                {{!--<li><a href="#">&laquo;</a></li>
+                                                <li class="active"><a href="#">1</a></li>--}}
+                                                {{#pages}}
                                                 {{#if query}}
-                                                <li><a href="#/userbooks/{{query}}?page={{page}}&size={{size}}&sortBy={{sortBy}}">{{displayPage}}</a></li>
+                                                <li><a href="#/books/{{query}}?page={{page}}&size={{size}}">{{displayPage}}</a></li>
                                                 {{else}}
-                                                 <li><a href="#/userbooks?page={{page}}&size={{size}}&sortBy={{sortBy}}">{{displayPage}}</a></li>
+                                                 <li><a href="#/books?page={{page}}&size={{size}}">{{displayPage}}</a></li>
                                                  {{/if}}
                                                 {{/pages}}
+                                                {{!--<li><a href="#">3</a></li>
+                                                <li><a href="#">&raquo;</a></li>--}}
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <ul id="userproducts-image" class="products-grid">
+                                <ul id="products-image" class="products-grid">
                                     {{#books}}
                                     <li class="item col-lg-4 col-md-3 col-sm-4 col-xs-12">
                                         <div class="item-inner">
                                             <div class="product-block">
-                                                <div id="userproducts-image" class="product-image">
+                                                <div id="product-image" class="product-image">
                                                     {{!--<a href="#">--}}
-                                                        <figure userdata-creator="{{_acl.creator}}" userdata-id="{{_id}}" class="product-display">
-                                                          {{#if url}}
-                                                          <a href="#/userbook/{{_id}}">
+                                                        <figure data-creator="{{_acl.creator}}" data-id="{{_id}}" class="product-display">
+                                                        {{#if url}}
+                                                           <a href="#/book/{{_id}}">
                                                             <img  src="{{url}}" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="{{url}}">
                                                          </a>
                                                          {{else}}
-
-                                                         <a href="#/userbook/{{_id}}">
+                                                          <a href="#/book/{{_id}}">
                                                             <img  src="../products-images/product1.jpg" class="lazyOwl product-mainpic" alt="{{title}}" style="display: block;">
                                                             <img   class="product-secondpic" alt="{{title}}" src="../products-images/product1.jpg">
                                                          </a>
-                                                            {{/if}}
+                                                          {{/if}}
+                                                        
                                                         </figure>
                                                     </a>
                                                 </div>
                                                 {{!--<div class="product-meta ">
                                                     <div class="product-action ">
-                                                        <a  class="addcart " href="# "> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
+                                                        <a  class="addcart " href="#"> <i class="icon-shopping-cart ">&nbsp;</i> Add to cart </a>
 
                                                         <a class="wishlist " href="#"> <i class="icon-heart ">&nbsp;</i> </a>
 
@@ -141,23 +142,25 @@
                             <div class="block-title"> Categories </div>
                             <div class="box-content box-category">
                                 <ul id="magicat">
-                                     {{#category}}
-                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/userbooks/{{encodeCategory}}"><span>{{category}}</span></a>
+                                    {{!--{{#this}}--}}
+                                    {{#category}}
+                                    <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/books/{{encodeCategory}}"><span>{{category}}</span></a>
                                         </span>
 
                                     </li>
                                     {{/category}}
-                                    {{!--<li class="level0- level0"> <span class="magicat-cat"><a href="#l"><span>Men</span></a>
+                                    {{!--{{/this}}--}}
+                                    {{!--<li class="level0- level0"> <span class="magicat-cat"><a href="#/books/C%23"><span>C#</span></a>
                                         </span>
                                     </li>
-                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#"><span>Shoes</span></a>
+                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#/books/Perl"><span>Perl</span></a>
                                         </span>
                                     </li>
                                     <li class="level0- level0  watches open"> <span class="magicat-cat"><a href="#"><span>Watches</span></a>
                                         </span>
 
                                     </li>
-                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#"><span>Furniture</span></a>
+                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#/books/Children's%20Books"><span>Children's Books</span></a>
                                         </span>
                                     </li>--}}
                                 </ul>

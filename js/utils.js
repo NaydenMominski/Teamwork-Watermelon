@@ -15,5 +15,19 @@ export default {
             });
         }
         return data = data.slice(page * size, (page + 1) * size);
+    },
+    // if (sortBy) {
+    sorting: function(data, sortBy) {
+        if (sortBy === "title") {
+            data.sort((a, b) => { return a.title.localeCompare(b.title); });
+        } else if (sortBy === "titledesc") {
+            data.sort((a, b) => { return b.title.localeCompare(a.title); });
+        } else if (sortBy === "price") {
+            data.sort((a, b) => { return a.price.localeCompare(b.price); });
+        } else if (sortBy === "pricedesc") {
+            data.sort((a, b) => { return b.price.localeCompare(a.price); });
+        }
+
     }
+
 }
