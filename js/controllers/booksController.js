@@ -178,7 +178,7 @@ export default {
     },
 
     // search: function() {
-    //     console.log("object");
+    //     console.log("searching");
     //     let search = this.params.search;
     //     console.log(search);
     //     data.books.all()
@@ -316,6 +316,7 @@ export default {
                 .then(function([book, userData]) {
                     // console.log(userData);
                     var body = {
+                        // shopingcard: [],
                         shopingcard: userData.shopingcard,
                         username: userData.username,
                         firstname: userData.firstname,

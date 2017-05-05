@@ -13,7 +13,7 @@
                   <div class="product-image">
                     {{#if url}}
                     <div class="large-image"> <a href="{{url}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="product-image" src="{{url}}"> </a> </div>
-                   {{else}}
+                    {{else}}
                     <div class="large-image"> <a href="../products-images/product1.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="product-image" src="../products-images/product1.jpg"> </a> </div>
                     {{/if}}
                   </div>
@@ -27,13 +27,7 @@
                     <p class="rating-links"><a href="#">By:{{author}}</a> </p>
                     <p class="rating-links"><a href="#">Category:{{genre}}</a> </p>
                   </div>
-                  {{!--<div class="ratings">
-                    <div class="rating-box">
-                      <div style="width:60%" class="rating"></div>
-                    </div>
-                    <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-                    
-                  </div>--}}
+            
                   <div class="short-description">
                     <h2>Quick Overview</h2>
                     <p>{{description}}</p>
@@ -48,8 +42,8 @@
                   </div>
                   <div class="add-to-box">
                     <div class="add-to-cart">
-                      {{!--<label for="qty">Quantity:</label>--}}
-                      {{!--<div class="pull-left">
+                      {{!--<label for="qty">Quantity:</label>
+                      <div class="pull-left">
                         <div class="custom pull-left">
                           <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
                           <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
@@ -58,10 +52,6 @@
                       </div>--}}
                       
                       <button id="btn-add-shoping-card" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
-                     
-                     {{!--<a href="'https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title"  class="btn  btn-social btn-facebook"><span class="fa fa-facebook"></span> Share</a> --}}
-                     {{!--<button id="btn-share-facebook" class="fb-xfbml-parse-ignore" type="button"><span><i class="fa fa-facebook"></i> Share on Facebook</i></span></button>--}}
-                    </div>
                     
                     {{!--<div class="email-addto-box">
                       <ul class="add-to-links">
@@ -69,26 +59,33 @@
                         <li><span class="separator">|</span> <a class="link-compare" href="compare.html"><span>Add to Compare</span></a></li>
                       </ul>
                       <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
-                    </div>--}}
-                    {{!--<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                    </div>
+                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
                       <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Споделяне
                       </a>
                     
                     </div>--}}
+
+                    <div><a href=""> &nbsp;</a></div>
+
                     <div class="btn-group">
-                            <a href="javascript:fbShareCurrentPage()" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500');return false;" 
-                            class="btn btn-default" style="background-color: #3b5998;">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="https://twitter.com/intent/tweet?text={{description}}" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" 
-                            class="btn btn-default" style="background-color:#9AD4FF;">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </div>
-                        {{!--<a href="'https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title" target="_blank">
-  Share on Facebook
-</a>--}}
-                  </div>
+                      <a href="javascript:fbShareCurrentPage()" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500');return false;" 
+                      class="btn btn-default" style="background-color: #3b5998;">
+                          <i class="fa fa-facebook"></i>
+                      </a>
+                      <a href="https://twitter.com/intent/tweet?text={{description}}" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" 
+                      class="btn btn-default" style="background-color:#9AD4FF;">
+                          <i class="fa fa-twitter"></i>
+                      </a>
+                    </div>
+
+
+             {{!--<div class="fb-share-button" data-href="http://127.0.0.1:8080/#/book/58ff6ecfddba268a21df7bd5" data-layout="button" data-size="large" data-mobile-iframe="true">
+              <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8080%2F%23%2Fbook%2F58ff6ecfddba268a21df7bd5&amp;src=sdkpreparse">Споделяне
+              </a>
+             </div>--}}
+
+                  {{!--</div>--}}
                 </div>
             
               </form>

@@ -88,7 +88,7 @@ export default {
             url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
             headers: getKinveyUserAuthHeaders()
         });
-        // console.log(this);
+
     },
     createBook: function(title, author, genre, price, url, description) {
         return $.ajax({

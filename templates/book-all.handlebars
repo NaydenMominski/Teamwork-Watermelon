@@ -44,16 +44,7 @@
                                             </span>
                                         </a> --}}
                                         </div>
-                                    {{!--<span>Sorting:</span>
-                                    <select id="dd-sorting">
-                                    <option value="choice" >Choice</option>
-                                    <option value="title" >By Title-Ascending</option>
-                                    <option value="titledesc" >By Title-Descending</option>
-                                     <option value="price">By Price-Ascending</option>
-                                    <option value="pricedesc">By Price-Descending</option>
-                                   
-                                    </select>--}}
-                                    <div class="pager">
+                                        <div class="pager">
                                         <div id="limiter">
                                             <label>View: </label>
                                             <ul> 
@@ -76,8 +67,6 @@
                                         <div class="pages">
                                             <label>Page:</label>
                                             <ul class="pagination">
-                                                {{!--<li><a href="#">&laquo;</a></li>
-                                                <li class="active"><a href="#">1</a></li>--}}
                                                 {{#pages}}
                                                 {{#if query}}
                                                 <li><a href="#/books/{{query}}?page={{page}}&size={{size}}&sortBy={{sortBy}}">{{displayPage}}</a></li>
@@ -85,8 +74,7 @@
                                                  <li><a href="#/books?page={{page}}&size={{size}}&sortBy={{sortBy}}">{{displayPage}}</a></li>
                                                  {{/if}}
                                                 {{/pages}}
-                                                {{!--<li><a href="#">3</a></li>
-                                                <li><a href="#">&raquo;</a></li>--}}
+                                               
                                             </ul>
                                         </div>
                                     </div>
@@ -156,27 +144,14 @@
                             <div class="block-title"> Categories </div>
                             <div class="box-content box-category">
                                 <ul id="magicat">
-                                    {{!--{{#this}}--}}
+                                    
                                     {{#category}}
                                     <li class="level0- level0 open"> <span class="magicat-cat"><a href="#/books/{{encodeCategory}}"><span>{{category}}</span></a>
                                         </span>
 
                                     </li>
                                     {{/category}}
-                                    {{!--{{/this}}--}}
-                                    {{!--<li class="level0- level0"> <span class="magicat-cat"><a href="#/books/C%23"><span>C#</span></a>
-                                        </span>
-                                    </li>
-                                    <li class="level0- level0  shoes"> <span class="magicat-cat"><a href="#/books/Perl"><span>Perl</span></a>
-                                        </span>
-                                    </li>
-                                    <li class="level0- level0  watches open"> <span class="magicat-cat"><a href="#"><span>Watches</span></a>
-                                        </span>
-
-                                    </li>
-                                    <li class="level0- level0 last"> <span class="magicat-cat"><a href="#/books/Children's%20Books"><span>Children's Books</span></a>
-                                        </span>
-                                    </li>--}}
+                           
                                 </ul>
                             </div>
                         </div>
