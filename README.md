@@ -3,7 +3,7 @@ JavaScript Applications: Teamwork
 
 # Book Exchange
 
-###### by Team Watermelo n
+###### by Team Watermelon
 
 ## Description
 
@@ -19,7 +19,7 @@ Book Exchange SPA in which you can:
 ## Team members
 | Name | [Student system](https://telerikacademy.com) username | [Github](https://github.com) username|
 |:----:|:-----------------------|:-----------------------------|
-|Nayden Mominski | Kiril_Velichkov | KirilVelichkov |
+|Nayden Mominski | Nayden_mominski | NaydenMominski |
 
 ## Live demo
 
