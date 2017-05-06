@@ -3,7 +3,7 @@
 import 'jquery'
 import kinveyRequester from 'js/kinveyRequester.js'
 import validator from 'js/validator.js'
-
+import utils from 'js/utils.js'
 // import requester from 'js/requester.js'
 // import cookie from 'js/cookie.js'
 
@@ -64,12 +64,13 @@ export default {
 
                 return Promise.reject(toastr.error(errPass.message));
             }
-
+            password = utils.encryptToSha1(password);
             return kinveyRequester.registerUser(username, password, firstname, lastname, email)
         },
 
 
         login: function(username, password) {
+            password = utils.encryptToSha1(password);
             return kinveyRequester.loginUser(username, password)
                 .then(saveAuthInSession);
 

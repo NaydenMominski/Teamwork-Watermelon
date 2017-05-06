@@ -1,4 +1,4 @@
-'use stict'
+'use strict'
 System.config({
     transpiler: 'plugin-babel',
     map: {
@@ -28,7 +28,8 @@ System.config({
         'handlebars': 'bower_components/handlebars/handlebars.js',
         'sammy': '/bower_components/sammy/lib/sammy.js',
         'sha1': 'bower_components/js-sha1/src/sha1.js',
-        'toastr': "bower_components/toastr/toastr.js"
+        'toastr': "bower_components/toastr/toastr.js",
+        'cryptojs': 'bower_components/crypto-js/crypto-js.js'
     }
 });
 

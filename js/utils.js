@@ -1,21 +1,23 @@
 'use strict'
 
+import cryptoJS from 'cryptojs';
+
 export default {
 
-    pagination: function(data, size, page) {
+    // pagination: function(data, size, page) {
 
-        let pagesLen = ((data.length / size) | 0) + 1,
-            pages = [];
+    //     let pagesLen = ((data.length / size) | 0) + 1,
+    //         pages = [];
 
-        for (var i = 0; i < pagesLen; i += 1) {
-            pages.push({
-                size: size,
-                page: i,
-                displayPage: i + 1
-            });
-        }
-        return data = data.slice(page * size, (page + 1) * size);
-    },
+    //     for (var i = 0; i < pagesLen; i += 1) {
+    //         pages.push({
+    //             size: size,
+    //             page: i,
+    //             displayPage: i + 1
+    //         });
+    //     }
+    //     return data = data.slice(page * size, (page + 1) * size);
+    // },
     // if (sortBy) {
     sorting: function(data, sortBy) {
         if (sortBy === "title") {
@@ -28,6 +30,11 @@ export default {
             data.sort((a, b) => { return b.price.localeCompare(a.price); });
         }
 
+    },
+    encryptToSha1: function(string) {
+        var toSha1 = cryptoJS.SHA1(string).toString();
+
+        return toSha1;
     }
 
 }
