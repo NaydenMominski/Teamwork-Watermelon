@@ -29,10 +29,7 @@ var sammyApp = Sammy(container, function() {
     booksController.bookevent();
     userController.userEvent();
 
-    // $('#main').on('click', '#btn-create-book', booksController.createBook());
-    // this.get('#/home/:id', function() {
-    //     console.log(this.params.id);
-    // });
+
     this.get('#/home', homeController.all);
     this.get('#/register', userController.register);
     this.get('#/login', userController.login);
@@ -42,7 +39,6 @@ var sammyApp = Sammy(container, function() {
     this.get('#/book/:bookID', booksController.showBookByID);
     this.get('#/books/:query', booksController.all);
 
-    // this.get('#/userbooks/:size/:page', booksController.userbooks);
     this.get('#/newbook', booksController.addbook);
 
     this.get('#/userbooks', booksController.userbooks);
@@ -50,7 +46,7 @@ var sammyApp = Sammy(container, function() {
     this.get('#/userbooks/:query', booksController.userbooks);
 
     this.get('#/bookinfo', booksController.bookinfo);
-    // this.get('#/search/results', booksController.search);
+
 
 });
 sammyApp.run('#/');

@@ -1,6 +1,6 @@
 // name: sammy
 // version: 0.7.6
-import 'jquery'
+// import 'jquery'
 // Sammy.js / http://sammyjs.org
 
 (function(factory) {

@@ -3,8 +3,7 @@ import 'jquery'
 
 import data from 'js/data.js'
 import templates from 'js/templates.js'
-import validator from 'js/validator.js'
-import notifier from 'js/notifier.js'
+
 
 
 export default {
@@ -62,9 +61,6 @@ export default {
                 email = $('#tb-reg-email').val(),
                 repassword = $('#tb-reg-repassword').val();
 
-            // if (password === repassword) {
-            // validator.lenght(password, 1, 40)
-            //     .then(function() {
             data.users.register(username, password, firstname, lastname, email, repassword)
                 .then(function(data) {
                     $('#tb-reg-username').val('');
@@ -81,9 +77,6 @@ export default {
                 .catch(function(err) {
                     toastr.error('Error:Unregistered user');
                 });
-            // } else {
-            //     toastr.error('Invalid Password');
-            // }
         });
 
         $('#main').on('click', '#btn-login', function(ev) {
@@ -108,42 +101,10 @@ export default {
                     window.location = window.location.origin + '#/books';
                 }, function(error) {
                     toastr.error('LogIn unsuccessful!');
-                    // context.redirect('#/home');
-                    window.location = window.location.origin + '#/books';
+
                 });
         });
 
-
-
-        // $('body').on('click', function(ev) {
-        //     // ev.preventDefault();
-        //     var target = ev.target;
-        //     console.log(target);
-        //     // console.log($target.attr('class') === 'btn-remove1');
-        // });
-
-
-        // $('#main').on('click', '#btn-add-shoping-card', function(ev) {
-
-        //     let userId = sessionStorage.getItem('userId');
-        //     let bookToAdd = $('#product_addtocart_form input').val();
-
-        //     Promise.all([data.books.bookinfo(bookToAdd), data.users.getUserData(userId)])
-        //         .then(function([book, userData]) {
-        //             // console.log(userData);
-        //             var body = {
-        //                 shopingcard: userData.shopingcard,
-        //                 username: userData.username,
-        //                 firstname: userData.firstname,
-        //                 lastname: userData.lastname,
-        //                 email: userData.email,
-        //                 repassword: userData.repassword
-        //             };
-        //             body.shopingcard.push(book);
-        //             data.users.putUserInfo(userId, body);
-        //             toastr.success('The book is added to the Shoping Cart');
-        //         });
-        // });
 
     }
 };

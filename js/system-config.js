@@ -9,7 +9,6 @@ System.config({
 
         // App files
         'app': 'js/app.js',
-        // 'myRouter': 'js/myRouter.js',
         'kinveyRequester': 'js/kinveyRequester.js',
         'data': 'js/data.js',
         'userController': 'js/controllers/userController.js',
@@ -19,8 +18,6 @@ System.config({
         'validator': './js/validator.js',
         'utils': './js/utils.js',
 
-        // templates
-        // 'homeTemplate': 'templates/home.handlebars',
 
         // Library files
 

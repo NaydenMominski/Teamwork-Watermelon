@@ -4,21 +4,7 @@ import cryptoJS from 'cryptojs';
 
 export default {
 
-    // pagination: function(data, size, page) {
 
-    //     let pagesLen = ((data.length / size) | 0) + 1,
-    //         pages = [];
-
-    //     for (var i = 0; i < pagesLen; i += 1) {
-    //         pages.push({
-    //             size: size,
-    //             page: i,
-    //             displayPage: i + 1
-    //         });
-    //     }
-    //     return data = data.slice(page * size, (page + 1) * size);
-    // },
-    // if (sortBy) {
     sorting: function(data, sortBy) {
         if (sortBy === "title") {
             data.sort((a, b) => { return a.title.localeCompare(b.title); });
@@ -32,7 +18,7 @@ export default {
 
     },
     encryptToSha1: function(string) {
-        var toSha1 = cryptoJS.SHA1(string).toString();
+        let toSha1 = cryptoJS.SHA1(string).toString();
 
         return toSha1;
     }

@@ -3,14 +3,12 @@ import 'jquery'
 
 import data from 'js/data.js'
 import templates from 'js/templates.js'
-import validator from 'js/validator.js'
 import utils from 'js/utils.js'
 
 export default {
 
     all: function() {
-        // var size = +sammy.params['size'] || 6,
-        //     page = +sammy.params['page'] || 0;
+
         let size = +this.params.size || 6,
             page = +this.params.page || 0,
             query = this.params.query,
@@ -177,46 +175,6 @@ export default {
             });
     },
 
-    // search: function() {
-    //     console.log("searching");
-    //     let search = this.params.search;
-    //     console.log(search);
-    //     data.books.all()
-    //         .then((booksObj) => {
-    //             let tempBooks = [],
-    //                 searchPattern = decodeURI(params.productName).toLowerCase();
-
-    //             for (let bookID in booksObj) {
-    //                 tempBooks.push(booksObj[bookID])
-    //                 tempBooks[tempBooks.length - 1]._id = bookID;
-    //             }
-
-    //             let filteredBooks = [];
-    //             for (let book of tempBooks) {
-    //                 if (book.title.toLowerCase().indexOf(searchPattern) > 0 ||
-    //                     book.author.toLowerCase().indexOf(searchPattern) > 0) {
-    //                     filteredBooks.push(book);
-    //                 }
-    //             }
-
-    //             console.log(tempBooks);
-    //             console.log(filteredBooks);
-
-    //             let body = {
-    //                 searchValue: decodeURI(params.productName)
-    //             };
-    //             if (filteredBooks.length > 0) {
-    //                 body.books = filteredBooks;
-    //             }
-
-    //             return templates.load('search');
-    //         }).then(function(templateHtml) {
-    //             $('#main').html(templateHtml(body));
-    //         });
-
-    // },
-
-
     bookevent: function() {
 
         $('#main').on('click', '#btn-create-book', function(ev) {
@@ -342,48 +300,6 @@ export default {
                 message: ''
             });
         });
-        //  $('#btn-shoping-card').on('click', function(e) {
 
-        //     $('#shoping-card-content').toggleClass("show");
-        //     e.preventDefault();
-        //     let userId = sessionStorage.getItem('userId');
-        //     Promise.all([data.users.getUserData(userId), templates.load('shoping-card')])
-        //         .then(function([data, template]) {
-
-        //             let db_curentuser = data.shopingcard;
-        //             let totalPrice = 0;
-
-        //             db_curentuser.forEach(function(book) {
-        //                 console.log(book.price);
-        //                 totalPrice += +book.price;
-        //             });
-        //             totalPrice = parseFloat(totalPrice.toString()).toFixed(2);
-
-        //             $('#shoping-card-content').html(template({
-        //                 books: db_curentuser,
-        //                 totalPrice: totalPrice
-        //             }));
-
-        //         });
-        // });
-
-
-        // $('#main').on('change', '#dd-sorting', function(e) {
-        //     if ($("#dd-sorting option:selected").val() === "title") {
-        //         window.location = window.location + '&sortBy=title';
-        //     } else if ($("#dd-sorting option:selected").val() === "titledesc") {
-        //         window.location = window.location + '&sortBy=titledesc';
-        //     } else if ($("#dd-sorting option:selected").val() === "price") {
-        //         window.location = window.location + '&sortBy=price';
-        //     } else if ($("#dd-sorting option:selected").val() === "pricedesc") {
-        //         window.location = window.location + '&sortBy=pricedesc';
-        // }
-        // else{
-
-        // }
-        // console.log(this.options[e.target.selectedIndex].text);
-        // alert($("#dd-sorting option:selected").text());
-        // console.log($("#dd-sorting option:selected").val());
-        // });
     }
 }
