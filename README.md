@@ -6,6 +6,7 @@ JavaScript Applications: Teamwork
 ###### by Team Watermelon
 
 ## Description
+  Book Exchange is an application where you can buy and sell books. You can create a book for sale, you can edit your own books as well as delete them. The books can be presented by categories, as well as sorted by title or by Price.You can add any book you want to add to the shopping cart.
 
 Book Exchange SPA in which you can:
 
@@ -21,8 +22,8 @@ Book Exchange SPA in which you can:
 |:----:|:-----------------------|:-----------------------------|
 |Nayden Mominski | Nayden_mominski | NaydenMominski |
 
-## Live demo
+<!--## Live demo-->
 
 
 ## Video demo
-
+[YouTube Video Demo](https://youtu.be/W4lTEptl1xs) 
