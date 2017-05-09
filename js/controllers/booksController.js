@@ -288,18 +288,6 @@ export default {
                 });
         });
 
-        $('#main').on('click', '#shareBtn', function(ev) {
-            console.log('facebook');
-            let bookToAdd = $('#product_addtocart_form input').val();
-            FB.ui({
-                method: 'feed',
-                name: 'DebugmodeEventPlans',
-                link: 'http://localhost:1461/ShareonFB.html',
-                caption: 'hey how is my Application ? tell me dude',
-                description: 'hey how is my Application ?',
-                message: ''
-            });
-        });
 
     }
 }
