@@ -1,9 +1,9 @@
-'use strict'
-import 'jquery'
+'use strict';
+import 'jquery';
 
-import data from 'js/data.js'
-import templates from 'js/templates.js'
-import utils from 'js/utils.js'
+import data from 'js/data.js';
+import templates from 'js/templates.js';
+import utils from 'js/utils.js';
 
 export default {
 
@@ -29,25 +29,25 @@ export default {
                 }
 
 
-                let dataGenre = allData.map(function(item) { return item.genre });
+                let dataGenre = allData.map(function(item) { return item.genre; });
                 let category = dataGenre.filter(function(item, pos) {
-                    return dataGenre.indexOf(item) == pos;
+                    return dataGenre.indexOf(item) === pos;
                 });
                 let encodeCategory = category.map(x => encodeURIComponent(x.trim()));
                 let cat = [];
 
-                for (var i = 0; i < category.length; i++) {
+                for (let i = 0; i < category.length; i++) {
                     cat.push({
                         category: category[i],
                         encodeCategory: encodeCategory[i]
                     });
                 }
                 // ----Pagination-----
-                var pagesLen = ((data.length / size) | 0) + 1,
+                let pagesLen = ((data.length / size) | 0) + 1,
                     pages = [],
                     queries = [];
 
-                for (var i = 0; i < pagesLen; i += 1) {
+                for (let i = 0; i < pagesLen; i += 1) {
                     pages.push({
                         size: size,
                         page: i,
@@ -113,7 +113,7 @@ export default {
         Promise.all([data.books.all(), templates.load('userbook-all')])
             .then(function([data, template]) {
 
-                var db_curentuser = $.grep(data, function(v) {
+                let db_curentuser = $.grep(data, function(v) {
                     return v._acl.creator === sessionStorage.getItem('userId');
                 });
 
@@ -128,24 +128,24 @@ export default {
                 }
 
 
-                let dataGenre = allDataUser.map(function(item) { return item.genre });
+                let dataGenre = allDataUser.map(function(item) { return item.genre; });
                 let category = dataGenre.filter(function(item, pos) {
-                    return dataGenre.indexOf(item) == pos;
+                    return dataGenre.indexOf(item) === pos;
                 });
                 let encodeCategory = category.map(x => encodeURIComponent(x.trim()));
                 let cat = [];
 
-                for (var i = 0; i < category.length; i++) {
+                for (let i = 0; i < category.length; i++) {
                     cat.push({
                         category: category[i],
                         encodeCategory: encodeCategory[i]
                     });
                 }
-                var pagesLen = ((db_curentuser.length / size) | 0) + 1,
+                let pagesLen = ((db_curentuser.length / size) | 0) + 1,
                     pages = [],
                     queries = [];
 
-                for (var i = 0; i < pagesLen; i += 1) {
+                for (let i = 0; i < pagesLen; i += 1) {
                     pages.push({
                         size: size,
                         page: i,
@@ -179,7 +179,7 @@ export default {
 
         $('#main').on('click', '#btn-create-book', function(ev) {
 
-            var title = $('#newbook-title').val(),
+            let title = $('#newbook-title').val(),
                 author = $('#newbook-author').val(),
                 genre = $('#newbook-genre').val(),
                 price = $('#newbook-price').val(),
@@ -222,7 +222,7 @@ export default {
         $('#main').on('click', '#btn-edit-book', function(ev) {
             let bookID = $('#book_for_edit').attr('data-id');
 
-            var title = $('#newbook-title').val(),
+            let title = $('#newbook-title').val(),
                 author = $('#newbook-author').val(),
                 genre = $('#newbook-genre').val(),
                 price = $('#newbook-price').val(),
@@ -273,7 +273,7 @@ export default {
             Promise.all([data.books.bookinfo(bookToAdd), data.users.getUserData(userId)])
                 .then(function([book, userData]) {
                     // console.log(userData);
-                    var body = {
+                    let body = {
                         // shopingcard: [],
                         shopingcard: userData.shopingcard,
                         username: userData.username,

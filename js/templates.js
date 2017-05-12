@@ -4,7 +4,7 @@ import Handlebars from 'handlebars'
 
 export default {
     load: function(name) {
-        var url = '../templates/' + name + '.handlebars';
+        let url = '../templates/' + name + '.handlebars';
 
         return new Promise(function(resolve, reject) {
             $.ajax({

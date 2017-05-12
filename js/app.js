@@ -1,12 +1,12 @@
-'use strict'
-import 'sammy'
-import 'jquery'
-import userController from 'js/controllers/userController.js'
-import homeController from 'js/controllers/homeController.js'
-import booksController from 'js/controllers/booksController.js'
+'use strict';
+import 'sammy';
+import 'jquery';
+import userController from 'js/controllers/userController.js';
+import homeController from 'js/controllers/homeController.js';
+import booksController from 'js/controllers/booksController.js';
 
-var container = '#main';
-var sammyApp = Sammy(container, function() {
+let container = '#main';
+let sammyApp = Sammy(container, function() {
 
     if (userController.isUserLoggedIn()) {
         $('#btn-navlogout').show();

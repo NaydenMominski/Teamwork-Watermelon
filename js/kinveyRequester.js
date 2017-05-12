@@ -1,7 +1,7 @@
 'use strict'
 import 'jquery'
 
-const kinveyBaseUrl = "https://baas.kinvey.com/";
+const kinveyBaseUrl = 'https://baas.kinvey.com/';
 const kinveyAppId = 'kid_HyPtpJTCe';
 const kinveyAppSecret = 'c80fcffa3bbe48b1bcceeafe6aa1ee1e';
 const kinveyAppAuthHeaders = {
@@ -9,11 +9,11 @@ const kinveyAppAuthHeaders = {
     contentType: 'application/json'
 
 };
-const proba = {
-    Authorization: 'Kinvey efa6dc3e-ffaf-4440-9eb2-6892c0586036.Z+SBnciTZHFrg6BXv3j1jPcEowI70VU0N6Hsn+SIza0=',
-    contentType: 'application/json'
+// const proba = {
+//     Authorization: 'Kinvey efa6dc3e-ffaf-4440-9eb2-6892c0586036.Z+SBnciTZHFrg6BXv3j1jPcEowI70VU0N6Hsn+SIza0=',
+//     contentType: 'application/json'
 
-};
+// };
 
 function getKinveyUserAuthHeaders() {
     return {
@@ -25,8 +25,8 @@ export default {
 
     loginUser: function(username, password) {
         return $.ajax({
-            method: "POST",
-            url: kinveyBaseUrl + "user/" + kinveyAppId + "/login",
+            method: 'POST',
+            url: kinveyBaseUrl + 'user/' + kinveyAppId + '/login',
             headers: kinveyAppAuthHeaders,
             data: { username, password },
             // success: function(data) { resolve(data) },
@@ -46,8 +46,8 @@ export default {
         };
 
         return $.ajax({
-            method: "POST",
-            url: kinveyBaseUrl + "user/" + kinveyAppId + "/",
+            method: 'POST',
+            url: kinveyBaseUrl + 'user/' + kinveyAppId + '/',
             headers: kinveyAppAuthHeaders,
             data: JSON.stringify(userData),
             contentType: 'application/json'
@@ -57,23 +57,23 @@ export default {
     },
     logoutUser: function() {
         return $.ajax({
-            method: "POST",
-            url: kinveyBaseUrl + "user/" + kinveyAppId + "/_logout",
+            method: 'POST',
+            url: kinveyBaseUrl + 'user/' + kinveyAppId + '/_logout',
             headers: getKinveyUserAuthHeaders(),
         });
     },
 
     findAllBooks: function() {
         return $.ajax({
-            method: "GET",
-            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
+            method: 'GET',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books',
             headers: getKinveyUserAuthHeaders()
         });
 
 
     },
     getbookinfo: function(bookId) {
-        // let bookId = "59007c34c8ad28df66075645";
+        // let bookId = '59007c34c8ad28df66075645';
         return $.ajax({
             method: 'GET',
             url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books/' + bookId,
@@ -84,16 +84,16 @@ export default {
 
     findUserBooks: function() {
         $.ajax({
-            method: "GET",
-            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
+            method: 'GET',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books',
             headers: getKinveyUserAuthHeaders()
         });
 
     },
     createBook: function(title, author, genre, price, url, description) {
         return $.ajax({
-            method: "POST",
-            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books",
+            method: 'POST',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books',
             headers: getKinveyUserAuthHeaders(),
             data: { title, author, genre, price, url, description }
         });
@@ -101,23 +101,23 @@ export default {
 
     editBook: function(bookId, title, author, genre, price, url, description) {
         return $.ajax({
-            method: "PUT",
-            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
+            method: 'PUT',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books/' + bookId,
             headers: getKinveyUserAuthHeaders(),
             data: { title, author, genre, price, url, description }
         });
     },
     deleteBook: function(bookId) {
         return $.ajax({
-            method: "DELETE",
-            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books/" + bookId,
+            method: 'DELETE',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books/' + bookId,
             headers: getKinveyUserAuthHeaders()
         });
     },
     sortBooksAscending: function(bySortingElement) {
         return $.ajax({
-            method: "GET",
-            url: kinveyBaseUrl + "appdata/" + kinveyAppId + "/books?query={}&sort=" + bySortingElement,
+            method: 'GET',
+            url: kinveyBaseUrl + 'appdata/' + kinveyAppId + '/books?query={}&sort=' + bySortingElement,
             headers: getKinveyUserAuthHeaders()
         });
 
@@ -125,8 +125,8 @@ export default {
     },
     getUserInfo: function(userId) {
         return $.ajax({
-            method: "GET",
-            url: kinveyBaseUrl + "user/" + kinveyAppId + "/" + userId,
+            method: 'GET',
+            url: kinveyBaseUrl + 'user/' + kinveyAppId + '/' + userId,
             headers: getKinveyUserAuthHeaders(),
             contentType: 'application/json'
 
@@ -134,8 +134,8 @@ export default {
     },
     editUserInfo: function(userId, newdata) {
         return $.ajax({
-            method: "PUT",
-            url: kinveyBaseUrl + "user/" + kinveyAppId + "/" + userId,
+            method: 'PUT',
+            url: kinveyBaseUrl + 'user/' + kinveyAppId + '/' + userId,
             headers: getKinveyUserAuthHeaders(),
             contentType: 'application/json',
             data: JSON.stringify(newdata)

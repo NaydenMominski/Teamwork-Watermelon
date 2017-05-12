@@ -1,8 +1,8 @@
-'use strict'
-import 'jquery'
+'use strict';
+import 'jquery';
 
-import data from 'js/data.js'
-import templates from 'js/templates.js'
+import data from 'js/data.js';
+import templates from 'js/templates.js';
 
 
 
@@ -43,7 +43,7 @@ export default {
     },
 
     isUserLoggedIn: function() {
-        var name = sessionStorage.getItem('username');
+        let name = sessionStorage.getItem('username');
 
         if (!name) {
             return false;
@@ -54,7 +54,7 @@ export default {
 
     userEvent: function() {
         $('#main').on('click', '#btn-register', function(ev) {
-            var username = $('#tb-reg-username').val(),
+            let username = $('#tb-reg-username').val(),
                 password = $('#tb-reg-password').val(),
                 firstname = $('#tb-reg-firstname').val(),
                 lastname = $('#tb-reg-lastname').val(),
@@ -81,7 +81,7 @@ export default {
 
         $('#main').on('click', '#btn-login', function(ev) {
 
-            var username = $('#formLogin input[name=login-username]').val(),
+            let username = $('#formLogin input[name=login-username]').val(),
                 password = $('#formLogin input[name=login-passwd]').val();
 
             data.users.login(username, password)
