@@ -1,7 +1,5 @@
 'use strict'
 /*globals Handlebars */
-// import 'jquery';
-// import Handlebars from 'handlebars';
 
 export default {
     load: function(name) {

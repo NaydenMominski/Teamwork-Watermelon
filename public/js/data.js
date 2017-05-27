@@ -1,6 +1,5 @@
 'use strict';
 
-// import 'jquery';
 import kinveyRequester from 'js/kinveyRequester.js';
 import validator from 'js/validator.js';
 import utils from 'js/utils.js';
