@@ -9,7 +9,22 @@
         "userbooks",
         "bookinfo",
         "getbookinfo",
-        "querys"
+        "querys",
+        "toastr",
+        "shopingcard",
+        "addtocart",
+        "editbook",
+        "delbook",
+        "firstname",
+        "lastname",
+        "navlogout",
+        "navlogin",
+        "repassword",
+        "passwd",
+        "bookevent",
+        "newbook",
+        "userbook",
+        "addbook"
     ],
     // flagWords - list of words to be always considered incorrect
     // This is useful for offensive words and common spelling errors.

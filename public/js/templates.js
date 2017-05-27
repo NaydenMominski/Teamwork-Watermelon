@@ -1,10 +1,11 @@
 'use strict'
-import 'jquery'
-import Handlebars from 'handlebars'
+/*globals Handlebars */
+// import 'jquery';
+// import Handlebars from 'handlebars';
 
 export default {
     load: function(name) {
-        let url = '../templates/' + name + '.handlebars';
+        let url = `templates/${name}.handlebars`;
 
         return new Promise(function(resolve, reject) {
             $.ajax({
@@ -15,7 +16,7 @@ export default {
                 error: function(err) {
                     reject(err);
                 }
-            })
+            });
         });
     }
-}
+};

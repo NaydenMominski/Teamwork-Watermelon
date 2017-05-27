@@ -3,9 +3,9 @@ System.config({
     transpiler: 'plugin-babel',
     map: {
         // System.js files
-        'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
-        'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
-        'text': 'node_modules/systemjs-plugin-text/text.js',
+        'plugin-babel': 'libs/systemjs-plugin-babel/plugin-babel.js',
+        'systemjs-babel-build': 'libs/systemjs-plugin-babel/systemjs-babel-browser.js',
+        'text': 'libs/systemjs-plugin-text/text.js',
 
         // App files
         'app': 'js/app.js',
@@ -21,12 +21,12 @@ System.config({
 
         // Library files
 
-        'jquery': 'bower_components/jquery/dist/jquery.js',
-        'handlebars': 'bower_components/handlebars/handlebars.js',
-        'sammy': '/bower_components/sammy/lib/sammy.js',
-        'sha1': 'bower_components/js-sha1/src/sha1.js',
-        'toastr': "bower_components/toastr/toastr.js",
-        'cryptojs': 'bower_components/crypto-js/crypto-js.js'
+        'jquery': 'libs/jquery/dist/jquery.js',
+        'handlebars': 'libs/handlebars/dist/handlebars.min.js',
+        'sammy': '/libs/sammy/lib/sammy.js',
+        // 'sha1': 'libs/js-sha1/src/sha1.js',
+        'toastr': "libs/toastr/toastr.js",
+        'cryptojs': 'libs/crypto-js/crypto-js.js'
     }
 });
 

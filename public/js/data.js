@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-import 'jquery'
-import kinveyRequester from 'js/kinveyRequester.js'
-import validator from 'js/validator.js'
-import utils from 'js/utils.js'
+// import 'jquery';
+import kinveyRequester from 'js/kinveyRequester.js';
+import validator from 'js/validator.js';
+import utils from 'js/utils.js';
 
 
 
@@ -21,19 +21,19 @@ function saveAuthInSession(userInfo) {
 export default {
     users: {
         register: function(username, password, firstname, lastname, email, repassword) {
-            let errUserName = validator.lenght(username, 3, 40, "User Name");
+            let errUserName = validator.lenght(username, 3, 40, 'User Name');
             if (errUserName) {
                 return Promise.reject(toastr.error(errUserName.message));
             }
 
-            if (email != '') {
+            if (email !== '') {
                 let errEmail = validator.validateEmail(email);
                 if (errEmail) {
                     return Promise.reject(toastr.error(errEmail.message));
                 }
             }
 
-            if (password != repassword) {
+            if (password !== repassword) {
                 return Promise.reject(toastr.error('Invalid Password'));
             }
 

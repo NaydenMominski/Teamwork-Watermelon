@@ -23,7 +23,8 @@ Book Exchange SPA in which you can:
 |Nayden Mominski | Nayden_mominski | NaydenMominski |
 
 <!--## Live demo-->
-
+## Live demo
+[Live Demo](https://watermelonteam.herokuapp.com) 
 
 ## Video demo
 [YouTube Video Demo](https://youtu.be/W4lTEptl1xs) 

@@ -1,17 +1,31 @@
 {
-  "name": "public",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "babel-core": "^5.8.23",
-    "live-server": "^1.2.0",
-    "systemjs": "^0.20.12",
-    "systemjs-plugin-babel": "0.0.21"
-  }
+    "name": "watermelon",
+    "version": "1.0.0",
+    "description": "",
+    "main": "Index.js",
+    "start": "node server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
+        "node": "7.6.0",
+        "npm": "4.0.5"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "babel-core": "^5.8.23",
+        "bootstrap": "^3.3.7",
+        "bootstrap-social": "^5.1.1",
+        "components-font-awesome": "^4.7.0",
+        "crypto-js": "^3.1.9-1",
+        "express": "^4.15.3",
+        "handlebars": "^4.0.10",
+        "jquery": "^3.2.1",
+        "live-server": "^1.2.0",
+        "sammy": "^0.7.6",
+        "systemjs": "^0.20.12",
+        "systemjs-plugin-babel": "0.0.21",
+        "toastr": "^2.1.2"
+    }
 }

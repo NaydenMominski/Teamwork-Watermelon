@@ -1,6 +1,6 @@
 'use strict';
-import 'sammy';
-import 'jquery';
+// import 'sammy';
+// import 'jquery';
 import userController from 'js/controllers/userController.js';
 import homeController from 'js/controllers/homeController.js';
 import booksController from 'js/controllers/booksController.js';

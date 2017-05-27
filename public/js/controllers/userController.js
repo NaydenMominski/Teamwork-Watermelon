@@ -7,18 +7,16 @@ import templates from 'js/templates.js';
 
 
 export default {
-    login: function() {
+    login: function(context) {
         templates.load('login')
             .then(function(templateHtml) {
-                $('#main').html(templateHtml());
+                context.$element().html(templateHtml);
             });
-
-
     },
-    register: function() {
+    register: function(context) {
         templates.load('register')
             .then(function(templateHtml) {
-                $('#main').html(templateHtml());
+                context.$element().html(templateHtml);
             });
     },
 
@@ -100,7 +98,7 @@ export default {
 
                     window.location = window.location.origin + '#/books';
                 }, function(error) {
-                    toastr.error('LogIn unsuccessful!');
+                    toastr.error('Login unsuccessful!');
 
                 });
         });

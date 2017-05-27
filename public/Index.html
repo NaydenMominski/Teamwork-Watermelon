@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Watermelon TeamWork</title>
+
+    <!-- Favicons Icon -->
+    <link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon">
+
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="libs/bootstrap-social/bootstrap-social.css" type="text/css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="css/my-style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="libs/toastr/build/toastr.css">
+
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-4 col-md-5">
+                        <!-- Header Logo -->
+                        <a class="logo" title="Watermelon Exchange" href="./images/watermelon.png"><img alt="Watermelon Exchange" src="./images/watermelon.png"></a>
+
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class=" col-lg-7 col-sm-8 col-md-7 col-xs-12">
+                        <div class="header-top">
+                            <div id="welcome-msg" class="welcome-msg "> </div>
+
+                            <!-- Header Top Links -->
+                            <div class="toplinks">
+                                <div class="links">
+                                    <div id="btn-navlogin" class="btn-navlogin">
+                                        <a href="#/login"><span class="hidden-xs">Log In</span></a>
+                                    </div>
+                                    <div id="btn-navlogout" class="btn-navlogout" display="none">
+                                        <a href="#/logout"><span class="hidden-xs">Log Out</span></a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- End Header Top Links -->
+                        </div>
+                        <div class="cart_cur_block">
+                            <!-- Header Currency -->
+                            <!-- Top Cart -->
+                            <div class="top-cart-contain">
+                                <div class="mini-cart">
+                                    <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
+                                        <a id="btn-shoping-card" href="#/">
+                                            <span class="hidden-xs">shopping cart</span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <div id="shoping-card-content" class="top-cart-content arrow_box show">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Top Cart -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!-- Navbar -->
+        <nav>
+            <div class="container">
+                <div class="nav-inner">
+
+                    <ul id="nav" class="hidden-xs">
+                        <li id="nav-home" class="level0 parent drop-menu active">
+                            <a href="#/"><span>Home</span> </a>
+                        </li>
+
+                        <li class="level0 nav-8 level-top">
+                            <a id="nav-all-books" href="#/books" class="level-top"> <span>All Books</span> </a>
+                        </li>
+                        <li class="level0 nav-8 level-top">
+                            <a href="#/newbook" class="level-top"> <span>Add New Book</span> </a>
+                        </li>
+                        <li class="level0 nav-8 level-top">
+                            <a href="#/userbooks" class="level-top"> <span>My Books</span> </a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <!-- end nav -->
+
+
+    </div>
+    <section id="main" class="container">
+
+    </section>
+
+    <!--<script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.9";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>-->
+    <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="libs/sammy/lib/sammy.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/handlebars/dist/handlebars.min.js"></script>
+
+    <script src="libs/toastr/toastr.js"></script>
+    <script src="libs/systemjs/dist/system.js"></script>
+
+
+    <script src="js/system-config.js"></script>
+
+</body>
+
+</html>
